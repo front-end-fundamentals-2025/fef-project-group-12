@@ -13,6 +13,10 @@ function updateCart() {
     cart.forEach(item => {
         const li = document.createElement("li");
         li.textContent = `${item.product} - $${item.price}`;
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.onclick = () => removeFromCart(index);
+        li.appendChild(removeButton);
         cartList.appendChild(li);
     });
 }
