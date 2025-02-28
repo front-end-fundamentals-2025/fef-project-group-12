@@ -1,92 +1,92 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-    const cartIcon = document.querySelector('.icon-cart');
-    const cartTab = document.querySelector('.cart-tab');
-    const closeCartBtn = document.querySelector('.close-cart');
-    const cartList = document.querySelector('.cart-list');
-    const addToCartButtons = document.querySelectorAll('.addCart');
-    const cartCount = document.querySelector('.cart-count');
+  const cartIcon = document.querySelector(".icon-cart");
+  const cartTab = document.querySelector(".cart-tab");
+  const closeCartBtn = document.querySelector(".close-cart");
+  const cartList = document.querySelector(".cart-list");
+  const addToCartButtons = document.querySelectorAll(".addCart");
+  const cartCount = document.querySelector(".cart-count");
 
-    let cart = []; // Stores cart items
+  let cart = [];
 
-    // Toggle shopping cart visibility
-    cartIcon.addEventListener('click', () => {
-        cartTab.classList.toggle('show');
-    });
+  cartIcon.addEventListener("click", () => cartTab.classList.toggle("show"));
+  closeCartBtn.addEventListener("click", () =>
+    cartTab.classList.remove("show")
+  );
 
-    // Close shopping cart when clicking "Close"
-    closeCartBtn.addEventListener('click', () => {
-        cartTab.classList.remove('show');
-    });
+  function updateCartUI() {
+    cartList.innerHTML = "";
+    cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    // Function to update the cart UI
-    function updateCartUI() {
-        cartList.innerHTML = ""; // Clear the cart display
-        if (cart.length === 0) {
-            cartList.innerHTML = "<p>Your cart is empty</p>";
-            cartCount.textContent = "0";
-            return;
-        }
+    if (cart.length === 0) {
+      cartList.innerHTML = "<p>Your cart is empty</p>";
+      return;
+    }
 
-        cart.forEach((item, index) => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
+    cart.forEach((item, index) => {
+      const cartItem = document.createElement("div");
+      cartItem.classList.add("cart-item");
 
-            cartItem.innerHTML = `
+      cartItem.innerHTML = `
                 <img src="${item.image}" alt="${item.name}">
                 <div class="details">
                     <p>${item.name}</p>
-                    <p>${item.price} KR x ${item.quantity}</p>
+                    <p>${item.price} KR</p>
+                    <div class="quantity-controls">
+                        <button class="decrease" data-index="${index}">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="increase" data-index="${index}">+</button>
+                    </div>
                 </div>
-                <button class="remove-item" data-index="${index}">X</button>
             `;
 
-            cartList.appendChild(cartItem);
-        });
-
-        // Update cart count
-        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-        // Add event listeners to remove buttons
-        document.querySelectorAll('.remove-item').forEach(button => {
-            button.addEventListener('click', removeItem);
-        });
-    }
-
-    // Function to add item to cart
-    function addToCart(event) {
-        const itemElement = event.target.closest('.item');
-        const itemName = itemElement.dataset.name;
-        const itemPrice = parseInt(itemElement.dataset.price);
-        const itemImage = itemElement.dataset.image;
-
-        // Check if item is already in cart
-        const existingItem = cart.find(item => item.name === itemName);
-        if (existingItem) {
-            existingItem.quantity++;
-        } else {
-            cart.push({
-                name: itemName,
-                price: itemPrice,
-                image: itemImage,
-                quantity: 1
-            });
-        }
-
-        updateCartUI();
-    }
-
-    // Function to remove an item from the cart
-    function removeItem(event) {
-        const index = event.target.dataset.index;
-        cart.splice(index, 1);
-        updateCartUI();
-    }
-
-    // Attach event listeners to all "ADD TO CART" buttons
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', addToCart);
+      cartList.appendChild(cartItem);
     });
 
+    document.querySelectorAll(".increase").forEach((button) => {
+      button.addEventListener("click", increaseQuantity);
+    });
+
+    document.querySelectorAll(".decrease").forEach((button) => {
+      button.addEventListener("click", decreaseQuantity);
+    });
+
+    document.querySelectorAll(".remove-item").forEach((button) => {
+      button.addEventListener("click", removeItem);
+    });
+  }
+
+  function addToCart(event) {
+    const itemElement = event.target.closest(".item");
+    const itemName = itemElement.dataset.name;
+    const itemPrice = parseInt(itemElement.dataset.price);
+    const itemImage = itemElement.dataset.image;
+
+    const existingItem = cart.find((item) => item.name === itemName);
+    if (existingItem) existingItem.quantity++;
+    else
+      cart.push({
+        name: itemName,
+        price: itemPrice,
+        image: itemImage,
+        quantity: 1,
+      });
+
     updateCartUI();
+  }
+
+  function increaseQuantity(event) {
+    cart[event.target.dataset.index].quantity++;
+    updateCartUI();
+  }
+
+  function decreaseQuantity(event) {
+    let item = cart[event.target.dataset.index];
+    if (item.quantity > 1) item.quantity--;
+    else cart.splice(event.target.dataset.index, 1);
+    updateCartUI();
+  }
+
+  addToCartButtons.forEach((button) =>
+    button.addEventListener("click", addToCart)
+  );
 });

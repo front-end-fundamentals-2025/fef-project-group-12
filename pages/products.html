@@ -1,60 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-commerce │ PRODUCTS</title>
-    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/products.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
     <script src="../js/products.js" defer></script>
-</head>
-<body>
-
-<header>
-    <nav>
+  </head>
+  <body>
+    <header>
+      <nav>
         <a href="../index.html">
-            <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo">
+          <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
         </a>
         <ul class="nav-links">
-            <li><a href="#">ABOUT</a></li>
-            <li><a href="/pages/products.html">PRODUCTS</a></li>
-            <li><a href="#">CONTACT</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="/pages/products.html">PRODUCTS</a></li>
+          <li><a href="#">CONTACT</a></li>
         </ul>
         <div class="icon-cart">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                    d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
-            </svg> 
-            <span class="cart-count">0</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+            />
+          </svg>
+          <span class="cart-count">0</span>
         </div>
-    </nav>    
-</header>
+      </nav>
+    </header>
 
-<!-- products -->
-<article class="container">
-    <div class="list-product">
-        <div class="item" data-name="Smooth Ring" data-price="2000" data-image="../img/SMOOTH.jpeg">
-            <img src="../img/SMOOTH.jpeg" alt="smooth ring, in silver">
-            <h2>Smooth Ring</h2>
-            <div class="price">2 000 KR</div>
-            <button class="addCart">ADD TO CART</button>
+    <!-- products -->
+    <article class="container">
+      <div class="list-product">
+        <div
+          class="item"
+          data-name="Smooth Ring"
+          data-price="2000"
+          data-image="../img/SMOOTH.jpeg"
+        >
+          <img src="../img/SMOOTH.jpeg" alt="smooth ring, in silver" />
+          <h2>Smooth Ring</h2>
+          <div class="price">2 000 KR</div>
+          <button class="addCart">ADD TO CART</button>
         </div>
-    </div>
-</article>
+      </div>
+    </article>
 
-<!-- cart panel -->
-<div class="cart-tab">
-    <h1>SHOPPING CART</h1>
-    <div class="cart-list"></div>    
+    <!-- cart panel -->
+    <div class="cart-tab">
+      <button class="close-cart">ⓧ</button>
+      <h1 id="cartTitle">SHOPPING CART</h1>
+      <div class="cart-list"></div>
 
-    <div class="cart-footer">
-        <button class="close-cart">CLOSE</button>
+      <div class="cart-footer">
         <button class="check-out">CHECK OUT</button>
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>
-
 
 <!-- REFERENCE LIST -->
 <!-- for ways of using svg:s and cart mechanics / slider
