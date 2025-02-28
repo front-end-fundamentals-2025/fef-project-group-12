@@ -54,7 +54,9 @@ header .icon-cart {
 
 /*      PRODUCT LISTINGS    */
 .list-product .item img {
-  width: 90%;
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
 }
 
 .list-product {
@@ -134,8 +136,8 @@ header .icon-cart {
 }
 
 .cart-item img {
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 8vh;
   object-fit: cover;
   width: 5vw;
 }
@@ -143,6 +145,7 @@ header .icon-cart {
 .cart-item .details {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-grow: 1;
   gap: 10px;
 }
