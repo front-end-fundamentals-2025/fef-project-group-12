@@ -13,6 +13,7 @@
     />
     <script src="js/main.js" defer></script>
     <script src="../js/cart.js" defer></script>
+    <script src="../js/products.js" defer></script>
   </head>
   <body>
     <header>
@@ -21,6 +22,7 @@
           <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
         </a>
         <ul class="nav-links">
+          <li><a href="/pages/product-details.html">DETAILJ</a></li>
           <li><a href="/pages/aboutus.html">ABOUT</a></li>
           <li><a href="/pages/products.html">PRODUCTS</a></li>
           <li><a href="#">CONTACT</a></li>
@@ -76,40 +78,31 @@
         <p class="featured-title">FEATURED PRODUCTS</p>
         <div class="featured-row">
           <div class="col-4">
-            <img src="img/rounded-ring-a.png" alt="Rounded ring, in silver" />
-            <h4>Rounded │ Silver</h4>
-            <p>1 000 KR</p>
+            <a href="product-details.html?product=RoundedRing">
+              <img src="img/rounded-ring-a.png" alt="Rounded ring, in silver" />
+              <h4>Rounded │ Silver</h4>
+              <p>1 000 KR</p>
+            </a>
           </div>
           <div class="col-4">
-            <img
-              src="img/diamond-signet-b.png"
-              alt="Diamond signet ring, in silver"
-            />
-            <h4>Signet │ Silver</h4>
-            <p>3 500 KR</p>
+            <a href="product-details.html?product=SignetRing">
+              <img
+                src="img/diamond-signet-b.png"
+                alt="Diamond signet ring, in silver"
+              />
+              <h4>Signet │ Silver</h4>
+              <p>3 500 KR</p>
+            </a>
           </div>
           <div class="col-4">
-            <img src="img/moulded-ring-c.png" alt="Moulded ring, in silver" />
-            <h4>Moulded │ Silver</h4>
-            <p>1 800 KR</p>
+            <a href="product-details.html?product=MouldedRing">
+              <img src="img/moulded-ring-c.png" alt="Moulded ring, in silver" />
+              <h4>Moulded │ Silver</h4>
+              <p>1 800 KR</p>
+            </a>
           </div>
         </div>
       </div>
-      <div class="cart-tab">
-        <div class="cart-content">
-          <h2>Your Cart</h2>
-          <ul id="cart-items">
-          </ul>
-          <p id="empty-message" style="display: none;">Oops! It's empty here.</p>
-          <button class="close-cart">Close</button>
-        </div>
-        <div class="cart">
-          <h2>Your Shopping Cart</h2>
-          <ul id="cart-items">
-    </ul>
-    <div class="total">
-    <p>Total Cost: <span id="total-cost">0 SEK</span></p>
-  </div>
     </main>
     <footer>
       <p id="brandFooter">© Brand name 2025</p>

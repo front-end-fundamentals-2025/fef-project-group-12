@@ -25,6 +25,7 @@ function updateCartUI() {
     cartList.appendChild(listItem);
     totalCost += item.quantity * item.price;
   });
+  
   const cartTotal = document.querySelector('.cart-total');
   cartTotal.textContent = `Total: ${totalCost} SEK`;
 }

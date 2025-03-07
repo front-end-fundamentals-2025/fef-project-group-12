@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us │ E-commerce</title>
-    <link rel="stylesheet" href="/css/aboutus.css" />
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/products.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,25 +15,20 @@
     <script src="../js/cart.js" defer></script>
     <script src="../js/products.js" defer></script>
   </head>
-
   <body>
     <header>
-        <nav>
-            <a href="../index.html">
-                <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
-              </a>
-          <ul class="nav-links">
+      <nav>
+        <a href="../index.html">
+          <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
+        </a>
+        <ul class="nav-links">
             <li><a href="/pages/product-details.html">DETAILJ</a></li>
             <li><a href="/pages/aboutus.html">ABOUT</a></li>
             <li><a href="/pages/products.html">PRODUCTS</a></li>
             <li><a href="#">CONTACT</a></li>
-          </ul>
-          <div class="icon-cart">
-          </div>
-        </nav>
-      </header>
+        </ul>
+        <div class="icon-cart">
           <svg
-            aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -48,37 +43,29 @@
               d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
             />
           </svg>
-          <span>0</span>
+          <span class="cart-count">0</span>
         </div>
       </nav>
     </header>
-    <main>
-      <section class="about-container">
-        <article class="about-content text-section">
-          <h1>About Us</h1>
-          <p>
-            We are a fine jewellery company committed to showcasing
-            the craftsmanship and artistry of local designers. Our mission is
-            to offer unique, high-quality jewellery that tells a story.
-          </p>
-          <p>
-            From rings to necklaces, our pieces are designed with passion and
-            attention to detail, perfect for those who appreciate artistry and
-            elegance.
-          </p>
-        </article>
 
-        <article class="about-image">
-          <img
-            src="img/about-image.jpeg"
-            alt="Our Jewellery Collection"
-            class="about-image"
-          />
-        </article>
-      </section>
-    </main>
+    <!-- Product Details Section -->
+    <section class="product-container">
+      <div class="product-details">
+        <div class="product-image">
+          <img src="" alt="Product Image" id="product-image" />
+        </div>
+        <div class="product-info">
+          <h1 id="product-name"></h1>
+          <p class="price" id="product-price"></p>
+          <p class="description" id="product-description"></p>
+          <button class="addCart" id="add-to-cart">ADD TO CART</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      <p id="brandFooter">© Brand name 2025</p>
+      <p>&copy; 2025 Your Company Name</p>
     </footer>
   </body>
 </html>

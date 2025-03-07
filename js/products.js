@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const cartCount = document.querySelector(".cart-count");
   const closeCart = document.querySelector('.close-cart');
   const emptyCartMessage = document.querySelector('.empty-cart-message');
+  const productName = urlParams.get('product');
 
   let cart = [];
 
@@ -105,3 +106,54 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("addToCartBtn").addEventListener("click", function() {
   alert("Product added to cart!");
 });
+
+
+function getProductDetails(productName) {
+  const products = {
+    "SmoothRing": {
+      name: "Smooth Ring",
+      price: "2 000 KR",
+      description: "A smooth and elegant silver ring.",
+      image: "../img/SMOOTH.jpeg",
+      id: "SmoothRing",
+    },
+    "RoundedSilverRing": {
+      name: "Rounded │ Silver ring",
+      price: "1 000 KR",
+      description: "A classic silver ring with a rounded design.",
+      image: "../img/rounded-ring-a.png",
+      id: "RoundedSilverRing",
+    },
+    "SignetSilver": {
+      name: "Signet │ Silver",
+      price: "3 500 KR",
+      description: "A stylish signet ring with an inset diamond.",
+      image: "../img/diamond-signet-b.png",
+      id: "SignetSilver",
+    },
+    "MouldedSilver": {
+      name: "Moulded │ Silver",
+      price: "1 800 KR",
+      description: "A beautifully moulded silver ring with intricate detailing.",
+      image: "../img/moulded-ring-c.png",
+      id: "MouldedSilver",
+    }
+  };
+
+  return products[productName];
+}
+
+function displayProductDetails(product) {
+  document.getElementById("product-name").innerText = product.name;
+  document.getElementById("product-price").innerText = product.price;
+  document.getElementById("product-description").innerText = product.description;
+  document.getElementById("product-image").src = product.image;
+}
+
+// Add product to cart
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${product.name} has been added to your cart.`);
+}
