@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>│ E-commerce</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,15 +12,17 @@
       rel="stylesheet"
     />
     <script src="js/main.js" defer></script>
+    <script src="../js/cart.js" defer></script>
   </head>
-
   <body>
     <header>
       <nav>
-        <img src="img/jaguar-logo.jpeg" alt="jaguar-logo" class="logo" />
+        <a href="../index.html">
+          <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
+        </a>
         <ul class="nav-links">
-          <li><a href="#">ABOUT</a></li>
-          <li><a href="pages/products.html">PRODUCTS</a></li>
+          <li><a href="/pages/aboutus.html">ABOUT</a></li>
+          <li><a href="/pages/products.html">PRODUCTS</a></li>
           <li><a href="#">CONTACT</a></li>
         </ul>
         <div class="icon-cart">
@@ -56,7 +58,7 @@
           <div class="text-content">
             <h1>Fine Jewellery</h1>
             <p>FROM LOCAL DESIGNERS</p>
-            <a href="#" class="shop-now-arrow">Shop Now →</a>
+            <a href="pages/products.html" class="shop-now-arrow">Shop Now →</a>
           </div>
         </article>
 
@@ -93,6 +95,21 @@
           </div>
         </div>
       </div>
+      <div class="cart-tab">
+        <div class="cart-content">
+          <h2>Your Cart</h2>
+          <ul id="cart-items">
+          </ul>
+          <p id="empty-message" style="display: none;">Oops! It's empty here.</p>
+          <button class="close-cart">Close</button>
+        </div>
+        <div class="cart">
+          <h2>Your Shopping Cart</h2>
+          <ul id="cart-items">
+    </ul>
+    <div class="total">
+    <p>Total Cost: <span id="total-cost">0 SEK</span></p>
+  </div>
     </main>
     <footer>
       <p id="brandFooter">© Brand name 2025</p>

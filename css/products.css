@@ -95,6 +95,7 @@ header .icon-cart {
   right: -50vw;
   width: 45vw;
   height: 100vh;
+  padding: 20px;
   background: white;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -103,6 +104,7 @@ header .icon-cart {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: right 0.3s ease-in-out;
 }
 
 .cart-tab.show {
@@ -112,10 +114,12 @@ header .icon-cart {
 #cartTitle {
   font-family: "Crimson Pro", serif;
   font-optical-sizing: auto;
-  font-weight: 400;
   font-style: normal;
-  font-size: 20px;
   text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
 }
 
 /* CART LIST */
@@ -170,33 +174,23 @@ header .icon-cart {
 /* CART BUTTONS */
 .cart-footer {
   display: flex;
-  justify-content: center;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 15px;
   background: #e9ecef;
 }
 
-.check-out {
+.check-out, .close-cart {
   background: #e9ecef;
   color: black;
-  padding: 10px;
+  padding: 12px 30px;
+  border-radius: 25px;
   border: none;
   cursor: pointer;
-  width: 48%;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.close-cart {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: black;
-}
-
-.close-cart:hover {
-  color: #66666e;
+.check-out:hover, .close-cart:hover {
+  background-color: #d6d9df;
 }
 
 /* CART ICON */
@@ -207,14 +201,59 @@ header .icon-cart {
 
 .icon-cart .cart-count {
   display: flex;
-  width: 30px;
-  height: 30px;
-  background-color: #e9ecef;
   justify-content: center;
   align-items: center;
-  color: black;
+  width: 30px;
+  height: 30px;
+  background-color: #ff5733; 
   border-radius: 50%;
   position: absolute;
-  top: 50%;
-  right: -20px;
+  top: -5px;
+  right: -5px;
+  font-size: 14px;
+  color: white;
 }
+
+.icon-cart:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect  */
+.cart-footer button:hover {
+  background-color: #d6d9df;
+}
+
+.cart-item img {
+  transition: transform 0.2s ease-in-out;
+}
+
+.cart-item:hover img {
+  transform: scale(1.1);
+}
+
+.cart-container {
+  display: none; 
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: white;
+  width: 300px;
+  height: 100%;
+  box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+}
+
+.cart-container.show {
+  display: block;
+}
+
+.empty-cart-message {
+  text-align: center;
+  font-size: 18px;
+  color: #ff0000; 
+  font-weight: bold;
+  padding: 20px;
+}
+

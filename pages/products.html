@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-commerce │ PRODUCTS</title>
-    <link rel="stylesheet" href="../css/products.css" />
+    <link rel="stylesheet" href="/css/products.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,6 +12,8 @@
       rel="stylesheet"
     />
     <script src="../js/products.js" defer></script>
+    <script src="../js/cart.js" defer></script>
+
   </head>
   <body>
     <header>
@@ -20,7 +22,7 @@
           <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
         </a>
         <ul class="nav-links">
-          <li><a href="#">ABOUT</a></li>
+          <li><a href="/pages/aboutus.html">ABOUT</a></li>
           <li><a href="/pages/products.html">PRODUCTS</a></li>
           <li><a href="#">CONTACT</a></li>
         </ul>
@@ -53,9 +55,11 @@
           data-price="2000"
           data-image="../img/SMOOTH.jpeg"
         >
+          <a href="product-details.html?product=SmoothRing"></a>
           <img src="../img/SMOOTH.jpeg" alt="smooth ring, in silver" />
           <h2>Smooth Ring</h2>
           <div class="price">2 000 KR</div>
+      </a>
           <button class="addCart">ADD TO CART</button>
         </div>
 
@@ -65,9 +69,11 @@
           data-price="1000"
           data-image="../img/rounded-ring-a.png"
         >
+        <a href="product-details.html?product=RoundedSilverRing">
           <img src="../img/rounded-ring-a.png" alt="rounded ring, in silver" />
           <h2>Rounded │ Silver ring</h2>
           <div class="price">1 000 KR</div>
+        </a>
           <button class="addCart">ADD TO CART</button>
         </div>
 
@@ -77,12 +83,14 @@
           data-price="3500"
           data-image="../img/diamond-signet-b.png"
         >
+        <a href="product-details.html?product=SignetSilver">
           <img
             src="../img/diamond-signet-b.png"
             alt="signet ring with inset diamond, in silver"
           />
           <h2>Signet │ Silver</h2>
           <div class="price">3 500 KR</div>
+        </a>
           <button class="addCart">ADD TO CART</button>
         </div>
 
@@ -92,12 +100,14 @@
           data-price="1800"
           data-image="../img/moulded-ring-c.png"
         >
+        <a href="product-details.html?product=MouldedSilver">
           <img
             src="../img/moulded-ring-c.png"
             alt="signet ring with inset diamond, in silver"
           />
           <h2>Moulded │ Silver</h2>
           <div class="price">1 800 KR</div>
+        </a>
           <button class="addCart">ADD TO CART</button>
         </div>
       </div>
