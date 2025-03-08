@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const cartList = document.querySelector(".cart-list");
   const addToCartButtons = document.querySelectorAll(".addCart");
   const cartCount = document.querySelector(".cart-count");
-  const closeCart = document.querySelector('.close-cart');
   const emptyCartMessage = document.querySelector('.empty-cart-message');
 
   let cart = [];
 
+  // Cart Icon Click (Show/Hide Cart)
   cartIcon.addEventListener("click", () => {
     cartTab.classList.toggle("show");
 
@@ -19,12 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
       emptyCartMessage.style.display = 'none';
     }
   });
-  
 
+  // Close Cart Button
   closeCartBtn.addEventListener("click", () => {
     cartTab.classList.remove("show");
   });
 
+  // Update Cart UI
   function updateCartUI() {
     cartList.innerHTML = "";
     cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -54,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
       cartList.appendChild(cartItem);
     });
 
-    // event listeners for quantity change
     document.querySelectorAll(".increase").forEach((button) => {
       button.addEventListener("click", increaseQuantity);
     });
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Add to Cart Function
   function addToCart(event) {
     const itemElement = event.target.closest(".item");
     const itemName = itemElement.dataset.name;
@@ -81,12 +82,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
     updateCartUI();
+    saveCartToLocalStorage();
   }
 
+  // Save Cart to Local Storage
   function saveCartToLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
-  
+
+  // Load Cart from Local Storage
   function loadCartFromLocalStorage() {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -94,61 +98,97 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCartUI();
     }
   }
-  
-  loadCartFromLocalStorage();
-  
 
+  loadCartFromLocalStorage();
+
+  // Increase Quantity
   function increaseQuantity(event) {
     cart[event.target.dataset.index].quantity++;
     updateCartUI();
+    saveCartToLocalStorage();
   }
 
+  // Decrease Quantity
   function decreaseQuantity(event) {
     let item = cart[event.target.dataset.index];
     if (item.quantity > 1) item.quantity--;
     else cart.splice(event.target.dataset.index, 1);
     updateCartUI();
+    saveCartToLocalStorage();
   }
 
-  // event listener at add to cart
+  // Add Event Listeners to All Add to Cart Buttons
   addToCartButtons.forEach((button) =>
     button.addEventListener("click", addToCart)
   );
+
+  // Display Product Details Based on URL Parameter
+  function getProductDetails(productName) {
+    const products = {
+      "SmoothRing": {
+        name: "Smooth Ring",
+        price: "2 000 KR",
+        description: "A smooth and elegant silver ring.",
+        image: "../img/SMOOTH.jpeg",
+        id: "SmoothRing",
+      },
+      "RoundedSilverRing": {
+        name: "Rounded │ Silver ring",
+        price: "1 000 KR",
+        description: "A classic silver ring with a rounded design.",
+        image: "../img/rounded-ring-a.png",
+        id: "RoundedSilverRing",
+      },
+      "SignetSilver": {
+        name: "Signet │ Silver",
+        price: "3 500 KR",
+        description: "A stylish signet ring with an inset diamond.",
+        image: "../img/diamond-signet-b.png",
+        id: "SignetSilver",
+      },
+      "MouldedSilver": {
+        name: "Moulded │ Silver",
+        price: "1 800 KR",
+        description: "A beautifully moulded silver ring with intricate detailing.",
+        image: "../img/moulded-ring-c.png",
+        id: "MouldedSilver",
+      }
+    };
+
+    return products[productName];
+  }
+
+  // Display Product Details on the Page
+  function displayProductDetails(product) {
+    document.getElementById("product-name").innerText = product.name;
+    document.getElementById("product-price").innerText = product.price;
+    document.getElementById("product-description").innerText = product.description;
+    document.getElementById("product-image").src = product.image;
+  }
+
+  // Handle Add to Cart for Product Page
+  function addProductToCart(product) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${product.name} has been added to your cart.`);
+  }
+
+  // Project Cards Toggle
+  let projectCards = document.querySelectorAll('.project-card');
+  projectCards.forEach(card => {
+    card.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+  });
+
+  // Contact Form Submission
+  let form = document.getElementById('contact-form');
+  let confirmationMessage = document.getElementById('confirmation-message');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    form.style.display = 'none';
+    confirmationMessage.style.display = 'block';
+  });
+
 });
-
-
-// detailjs products
-function loadProductDetails(product) {
-  const details = {
-    roundedRing: {
-      title: 'Rounded │ Silver',
-      image: 'img/rounded-ring-a.png',
-      price: '1 000 KR',
-      description: 'This is a beautiful rounded silver ring.'
-    },
-    signetRing: {
-      title: 'Signet │ Silver',
-      image: 'img/diamond-signet-b.png',
-      price: '3 500 KR',
-      description: 'A luxurious diamond signet ring in silver.'
-    },
-    mouldedRing: {
-      title: 'Moulded │ Silver',
-      image: 'img/moulded-ring-c.png',
-      price: '1 800 KR',
-      description: 'A unique moulded silver ring design.'
-    }
-  };
-
-  // Update the product details based on the clicked product
-  const productData = details[product];
-  document.getElementById('product-title').textContent = productData.title;
-  document.getElementById('product-image').src = productData.image;
-  document.getElementById('product-price').textContent = productData.price;
-  document.getElementById('product-description').textContent = productData.description;
-
-  // Show the product detail section
-  document.getElementById('product-detail').style.display = 'block';
-}
-
-

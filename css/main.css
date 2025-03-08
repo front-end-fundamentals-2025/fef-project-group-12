@@ -449,5 +449,17 @@ footer {
   }
 }
 
+.product-details-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.product-details-text.pop-out {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
 

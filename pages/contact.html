@@ -1,52 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Product Details</title>
-        <link rel="stylesheet" href="/css/details.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/details.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
     <script src="js/main.js" defer></script>
     <script src="../js/cart.js" defer></script>
     <script src="../js/products.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <a href="../index.html">
-                <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
-              </a>
-          <ul class="nav-links">
-            <li><a href="/pages/aboutus.html">ABOUT</a></li>
-            <li><a href="/pages/products.html">PRODUCTS</a></li>
-            <li><a href="/pages/contact.html">CONTACT</a></li>
-          </ul>
-          <div class="icon-cart">
-          </div>
-        </nav>
-      </header>
-    <div class="contact-container">
+      <nav>
+        <a href="../index.html">
+          <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/pages/aboutus.html">ABOUT</a></li>
+          <li><a href="/pages/products.html">PRODUCTS</a></li>
+          <li><a href="/pages/contact.html">CONTACT</a></li>
+        </ul>
+        <div class="icon-cart">
+          <!-- Placeholder for cart icon -->
+        </div>
+      </nav>
+    </header>
+
+    <article class="product-details-container">
+      <div class="product-details">
+        <img src="../img/SMOOTH.jpeg" alt="Smooth Ring" class="product-image" />
+        <div class="product-info">
+          <h1>Smooth Ring</h1>
+          <p class="description">A sleek and modern design, perfect for any occasion.</p>
+          <div class="price">2,000 KR</div>
+          <label for="size">Select Size:</label>
+          <select id="size" name="size">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+          <button class="addCart">ADD TO CART</button>
+        </div>
+      </div>
+    </article>
+
+    <footer>
+      <div class="contact-container">
         <h2>Contact Us</h2>
         <form action="#" method="post">
-            <div class="input-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="input-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="input-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit">Send</button>
+          <div class="input-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="input-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit">Send</button>
         </form>
-    </div>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>

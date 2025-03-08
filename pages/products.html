@@ -14,7 +14,6 @@
     <script src="js/main.js" defer></script>
     <script src="../js/cart.js" defer></script>
     <script src="../js/products.js" defer></script>
-
   </head>
   <body>
     <header>
@@ -50,6 +49,7 @@
 
     <article class="container">
       <div class="list-product">
+        <!-- Smooth Ring -->
         <div
           class="item"
           data-name="Smooth Ring"
@@ -57,64 +57,67 @@
           data-image="../img/SMOOTH.jpeg"
         >
           <a href="product-details.html?product=SmoothRing"></a>
-          <img src="../img/SMOOTH.jpeg" alt="smooth ring, in silver" />
+          <img src="../img/SMOOTH.jpeg" alt="Smooth ring, in silver" />
           <h2>Smooth Ring</h2>
           <div class="price">2 000 KR</div>
-      </a>
+          </a> <!-- Closing tag was missing for <a> here -->
           <button class="addCart">ADD TO CART</button>
         </div>
 
+        <!-- Rounded Silver Ring -->
         <div
           class="item"
           data-name="Rounded │ Silver ring"
           data-price="1000"
           data-image="../img/rounded-ring-a.png"
         >
-        <a href="product-details.html?product=RoundedSilverRing">
-          <img src="../img/rounded-ring-a.png" alt="rounded ring, in silver" />
-          <h2>Rounded │ Silver ring</h2>
-          <div class="price">1 000 KR</div>
-        </a>
+          <a href="product-details.html?product=RoundedSilverRing">
+            <img src="../img/rounded-ring-a.png" alt="Rounded ring, in silver" />
+            <h2>Rounded │ Silver ring</h2>
+            <div class="price">1 000 KR</div>
+          </a>
           <button class="addCart">ADD TO CART</button>
         </div>
 
+        <!-- Signet Silver Ring -->
         <div
           class="item"
           data-name="Signet │ Silver"
           data-price="3500"
           data-image="../img/diamond-signet-b.png"
         >
-        <a href="product-details.html?product=SignetSilver">
-          <img
-            src="../img/diamond-signet-b.png"
-            alt="signet ring with inset diamond, in silver"
-          />
-          <h2>Signet │ Silver</h2>
-          <div class="price">3 500 KR</div>
-        </a>
+          <a href="product-details.html?product=SignetSilver">
+            <img
+              src="../img/diamond-signet-b.png"
+              alt="Signet ring with inset diamond, in silver"
+            />
+            <h2>Signet │ Silver</h2>
+            <div class="price">3 500 KR</div>
+          </a>
           <button class="addCart">ADD TO CART</button>
         </div>
 
+        <!-- Moulded Silver Ring -->
         <div
           class="item"
           data-name="Moulded │ Silver"
           data-price="1800"
           data-image="../img/moulded-ring-c.png"
         >
-        <a href="product-details.html?product=MouldedSilver">
-          <img
-            src="../img/moulded-ring-c.png"
-            alt="signet ring with inset diamond, in silver"
-          />
-          <h2>Moulded │ Silver</h2>
-          <div class="price">1 800 KR</div>
-        </a>
+          <a href="product-details.html?product=MouldedSilver">
+            <img
+              src="../img/moulded-ring-c.png"
+              alt="Moulded ring, in silver"
+            />
+            <h2>Moulded │ Silver</h2>
+            <div class="price">1 800 KR</div>
+          </a>
           <button class="addCart">ADD TO CART</button>
         </div>
       </div>
     </article>
 
-    <!-- cart panel -->
+    <!-- Cart Panel -->
     <div class="cart-tab">
       <button class="close-cart">ⓧ</button>
       <h1 id="cartTitle">SHOPPING CART</h1>
@@ -128,5 +131,6 @@
 </html>
 
 <!-- REFERENCE LIST -->
-<!-- for ways of using svg:s and cart mechanics / slider
-Dev, L. (2023, October 16). How To Add To Cart Shopping using HTML CSS and Javascript. YouTube. https://www.youtube.com/watch?v=gXWohFYrI0M   -->
+<!-- For ways of using SVGs and cart mechanics / slider
+Dev, L. (2023, October 16). How To Add To Cart Shopping using HTML, CSS, and JavaScript. YouTube. https://www.youtube.com/watch?v=gXWohFYrI0M
+-->
