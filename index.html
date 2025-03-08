@@ -11,9 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
-    <script src="js/main.js" defer></script>
-    <script src="../js/cart.js" defer></script>
-    <script src="../js/products.js" defer></script>
   </head>
   <body>
     <header>
@@ -26,7 +23,7 @@
           <li><a href="/pages/products.html">PRODUCTS</a></li>
           <li><a href="/pages/contact.html">CONTACT</a></li>
         </ul>
-        <div class="icon-cart">
+        <div class="icon-cart" style="position: relative; cursor: pointer;">
           <svg
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -47,6 +44,7 @@
         </div>
       </nav>
     </header>
+
     <main>
       <section class="home-container">
         <!-- left section -->
@@ -71,39 +69,75 @@
           />
         </article>
       </section>
+      
+    </main>
 
-      <!------- featured products -------->
-      <div class="small-container">
-        <p class="featured-title">FEATURED PRODUCTS</p>
-        <div class="featured-row">
-          <div class="col-4">
-            <a href="product-details.html?product=RoundedRing">
-              <img src="img/rounded-ring-a.png" alt="Rounded silver ring" /> <!-- Added alt text -->
-              <h4>Rounded │ Silver</h4>
-              <p>1 000 KR</p>
-            </a>
+    <!-- Cart Panel -->
+    <div class="cart-tab">
+      <button class="close-cart">ⓧ</button>
+      <h1 id="cartTitle">SHOPPING CART</h1>
+      <div class="cart-list"></div>
+
+      <div class="cart-footer">
+        <button class="check-out">CHECK OUT</button>
+      </div>
+    </div>
+
+    <div class="small-container">
+      <p class="featured-title">FEATURED PRODUCTS</p>
+      <div class="featured-row">
+        <!-- Product 1 -->
+        <div class="col-4 product-item">
+          <img src="img/rounded-ring-a.png" class="product-image" />
+          <div class="product-info">
+            <h4>Rounded │ Silver</h4>
+            <p class="price">1,000 KR</p>
+            <!-- Hidden details section -->
+            <div class="details" style="display: none;">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19, 20</p>
+              <p class="material">Material: Silver</p>
+              <p class="description">A sleek and stylish silver ring.</p>
+            </div>
           </div>
-          <div class="col-4">
-            <a href="product-details.html?product=SignetRing">
-              <img
-                src="img/diamond-signet-b.png"
-                alt="Diamond signet ring, in silver" /> <!-- Added alt text -->
-              <h4>Signet │ Silver</h4>
-              <p>3 500 KR</p>
-            </a>
+        </div>
+        
+        <!-- Repeat for other products -->
+        <div class="col-4 product-item">
+          <img src="img/diamond-signet-b.png" class="product-image" />
+          <div class="product-info">
+            <h4>Signet │ Silver</h4>
+            <p class="price">3,500 KR</p>
+            <!-- Hidden details section -->
+            <div class="details" style="display: none;">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">A diamond signet ring, perfect for any occasion.</p>
+            </div>
           </div>
-          <div class="col-4">
-            <a href="product-details.html?product=MouldedRing">
-              <img src="img/moulded-ring-c.png" alt="Moulded silver ring" /> <!-- Added alt text -->
-              <h4>Moulded │ Silver</h4>
-              <p>1 800 KR</p>
-            </a>
+        </div>
+        
+        <!-- Another product example -->
+        <div class="col-4 product-item">
+          <img src="img/moulded-ring-c.png" class="product-image" />
+          <div class="product-info">
+            <h4>Moulded │ Silver</h4>
+            <p class="price">1,800 KR</p>
+            <!-- Hidden details section -->
+            <div class="details" style="display: none;">
+              <p class="ring-size">Sizes Available: 16, 17, 18</p>
+              <p class="material">Material: Silver</p>
+              <p class="description">An elegant moulded silver ring with a modern touch.</p>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
+
     <footer>
       <p id="brandFooter">© Brand name 2025</p>
     </footer>
+    
+  
+    <script src="js/main.js" defer></script>
   </body>
 </html>
