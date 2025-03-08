@@ -117,3 +117,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// detailjs products
+function loadProductDetails(product) {
+  const details = {
+    roundedRing: {
+      title: 'Rounded │ Silver',
+      image: 'img/rounded-ring-a.png',
+      price: '1 000 KR',
+      description: 'This is a beautiful rounded silver ring.'
+    },
+    signetRing: {
+      title: 'Signet │ Silver',
+      image: 'img/diamond-signet-b.png',
+      price: '3 500 KR',
+      description: 'A luxurious diamond signet ring in silver.'
+    },
+    mouldedRing: {
+      title: 'Moulded │ Silver',
+      image: 'img/moulded-ring-c.png',
+      price: '1 800 KR',
+      description: 'A unique moulded silver ring design.'
+    }
+  };
+
+  // Update the product details based on the clicked product
+  const productData = details[product];
+  document.getElementById('product-title').textContent = productData.title;
+  document.getElementById('product-image').src = productData.image;
+  document.getElementById('product-price').textContent = productData.price;
+  document.getElementById('product-description').textContent = productData.description;
+
+  // Show the product detail section
+  document.getElementById('product-detail').style.display = 'block';
+}
+
+
