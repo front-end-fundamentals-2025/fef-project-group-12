@@ -11,7 +11,6 @@
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
-    <script src="../js/main.js" defer></script>
   </head>
   <body>
     <header>
@@ -20,26 +19,13 @@
           <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
         </a>
         <ul class="nav-links">
-          <li><a href="#">ABOUT</a></li>
           <li><a href="/pages/aboutus.html">ABOUT</a></li>
           <li><a href="/pages/products.html">PRODUCTS</a></li>
-          <li><a href="#">CONTACT</a></li>
+          <li><a href="/pages/contact.html">CONTACT</a></li>
         </ul>
         <div class="icon-cart">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
           </svg>
           <span class="cart-count">0</span>
         </div>
@@ -49,53 +35,74 @@
     <article class="container">
       <div class="small-container">
         <div class="product-row">
-          <!-- Smooth Ring -->
-          <div class="col-4 product-item" data-price="2000" data-image="../img/SMOOTH.jpeg">
-            <a href="product-details.html?product=SmoothRing">
-              <img src="../img/SMOOTH.jpeg" alt="Smooth ring, in silver" />
-              <h2>Smooth Ring</h2>
-              <div class="price">2 000 KR</div>
-            </a>
-            <button class="addCart">ADD TO CART</button>
+          <!-- Product 1: Smooth Ring -->
+          <div class="col-4 product-item">
+            <img src="../img/SMOOTH.jpeg" class="product-image" onclick="addToCart('Smooth │ Silver', 2000, 'img/SMOOTH.jpeg')" />
+            <div class="product-info">
+              <h4>Smooth Ring</h4>
+              <p class="price">2 000 KR</p>
+              <div class="details" style="display: none;">
+                <p class="ring-size">Sizes Available: 16, 17, 18, 19, 20</p>
+                <p class="material">Material: Silver</p>
+                <p class="description">A simple and elegant smooth silver ring.</p>
+              </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('Smooth │ Silver', 2000, 'img/SMOOTH.jpeg')">Add to Cart</button>
           </div>
-
-          <!-- Rounded Silver Ring -->
-          <div class="col-4 product-item" data-price="1000" data-image="../img/rounded-ring-a.png">
-            <a href="product-details.html?product=RoundedSilverRing">
-              <img src="../img/rounded-ring-a.png" alt="Rounded ring, in silver" />
-              <h2>Rounded │ Silver ring</h2>
-              <div class="price">1 000 KR</div>
-            </a>
-            <button class="addCart">ADD TO CART</button>
+    
+          <!-- Product 2: Rounded Silver Ring -->
+          <div class="col-4 product-item">
+            <img src="../img/rounded-ring-a.png" class="product-image" onclick="addToCart('Rounded │ Silver', 1000, 'img/rounded-ring-a.png')" />
+            <div class="product-info">
+              <h4>Rounded │ Silver</h4>
+              <p class="price">1 000 KR</p>
+              <div class="details" style="display: none;">
+                <p class="ring-size">Sizes Available: 16, 17, 18, 19, 20</p>
+                <p class="material">Material: Silver</p>
+                <p class="description">A sleek and stylish silver ring.</p>
+              </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('Rounded │ Silver', 1000, 'img/rounded-ring-a.png')">Add to Cart</button>
           </div>
-
-          <!-- Signet Silver Ring -->
-          <div class="col-4 product-item" data-price="3500" data-image="../img/diamond-signet-b.png">
-            <a href="product-details.html?product=SignetSilver">
-              <img
-                src="../img/diamond-signet-b.png"
-                alt="Signet ring with inset diamond, in silver"
-              />
-              <h2>Signet │ Silver</h2>
-              <div class="price">3 500 KR</div>
-            </a>
-            <button class="addCart">ADD TO CART</button>
+    
+          <!-- Product 3: Signet Silver Ring -->
+          <div class="col-4 product-item">
+            <img src="../img/diamond-signet-b.png" class="product-image" onclick="addToCart('Signet │ Silver', 3500, 'img/diamond-signet-b.png')" />
+            <div class="product-info">
+              <h4>Signet │ Silver</h4>
+              <p class="price">3 500 KR</p>
+              <div class="details" style="display: none;">
+                <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+                <p class="material">Material: Silver, Diamond</p>
+                <p class="description">A diamond signet ring, perfect for any occasion.</p>
+              </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('Signet │ Silver', 3500, 'img/diamond-signet-b.png')">Add to Cart</button>
           </div>
-
-          <!-- Moulded Silver Ring -->
-          <div class="col-4 product-item" data-price="1800" data-image="../img/moulded-ring-c.png">
-            <a href="product-details.html?product=MouldedSilver">
-              <img
-                src="../img/moulded-ring-c.png"
-                alt="Moulded ring, in silver"
-              />
-              <h2>Moulded │ Silver</h2>
-              <div class="price">1 800 KR</div>
-            </a>
-            <button class="addCart">ADD TO CART</button>
+    
+          <!-- Product 4: Moulded Silver Ring -->
+          <div class="col-4 product-item">
+            <img src="../img/moulded-ring-c.png" class="product-image" onclick="addToCart('Moulded │ Silver', 1800, 'img/moulded-ring-c.png')" />
+            <div class="product-info">
+              <h4>Moulded │ Silver</h4>
+              <p class="price">1 800 KR</p>
+              <div class="details" style="display: none;">
+                <p class="ring-size">Sizes Available: 16, 17, 18</p>
+                <p class="material">Material: Silver</p>
+                <p class="description">An elegant moulded silver ring with a modern touch.</p>
+              </div>
+            </div>
+            <button class="add-to-cart" onclick="addToCart('Moulded │ Silver', 1800, 'img/moulded-ring-c.png')">Add to Cart</button>
           </div>
         </div>
       </div>
     </article>
+    
+    <footer>
+      <p id="brandFooter">© Brand name 2025</p>
+    </footer>
+    
+    <!-- Main JS file -->
+    <script src="js/main.js" defer></script>
   </body>
 </html>

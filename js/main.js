@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const cartCount = document.querySelector(".cart-count");
   const emptyCartMessage = document.querySelector('.empty-cart-message');
   const checkoutButton = document.querySelector('.cart-footer .check-out');
-  const addToCartButtons = document.querySelectorAll(".add-to-cart");
 
   // Cart Toggle and Empty Cart Message
   cartIcon.addEventListener("click", () => {
@@ -30,7 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       const totalCost = cartItems.reduce((total, item) => total + (item.quantity * item.price), 0);
-      const checkoutDetails = cartItems.map(item => `${item.name} - ${item.quantity} x ${item.price} SEK = ${item.quantity * item.price} SEK`).join('\n');
+      const checkoutDetails = cartItems.map(item =>
+        `${item.name} - ${item.quantity} x ${item.price} SEK = ${item.quantity * item.price} SEK`
+      ).join('\n');
       
       const confirmationMessage = `
         Checkout Details:
@@ -42,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         Thank you for your purchase!`;
       
       alert(confirmationMessage);
-      cartItems.length = 0; // Clear cart after checkout
+      cartItems = []; // Clear cart after checkout
       updateCartUI();
     });
   }
 
-  // Add to Cart
+  // Add to Cart Function
   function addItemToCart(name, price) {
     const existingItem = cartItems.find(item => item.name === name);
     if (existingItem) {
@@ -57,6 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     updateCartUI();
   }
+
+  // Expose global function (if needed)
+  window.addToCart = function(name, price) {
+    addItemToCart(name, price);
+  };
 
   // Update Cart UI
   function updateCartUI() {
@@ -84,14 +90,19 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         <button class="remove-item" data-name="${item.name}">Remove</button>
       `;
-
       cartList.appendChild(cartItem);
       totalCost += item.quantity * item.price;
     });
 
-    document.querySelectorAll(".increase").forEach(button => button.addEventListener("click", increaseQuantity));
-    document.querySelectorAll(".decrease").forEach(button => button.addEventListener("click", decreaseQuantity));
-    document.querySelectorAll(".remove-item").forEach(button => button.addEventListener("click", removeItem));
+    document.querySelectorAll(".increase").forEach(button =>
+      button.addEventListener("click", increaseQuantity)
+    );
+    document.querySelectorAll(".decrease").forEach(button =>
+      button.addEventListener("click", decreaseQuantity)
+    );
+    document.querySelectorAll(".remove-item").forEach(button =>
+      button.addEventListener("click", removeItem)
+    );
 
     const cartTotal = document.querySelector('.cart-total');
     if (cartTotal) {
@@ -99,44 +110,54 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Increase Item Quantity
   function increaseQuantity(event) {
-    cartItems[event.target.dataset.index].quantity++;
+    const index = event.target.dataset.index;
+    cartItems[index].quantity++;
     updateCartUI();
   }
 
-  // Decrease Item Quantity
   function decreaseQuantity(event) {
-    let item = cartItems[event.target.dataset.index];
-    if (item.quantity > 1) item.quantity--;
-    else cartItems.splice(event.target.dataset.index, 1);
+    const index = event.target.dataset.index;
+    let item = cartItems[index];
+    if (item.quantity > 1) {
+      item.quantity--;
+    } else {
+      cartItems.splice(index, 1);
+    }
     updateCartUI();
   }
 
-  // Remove Item from Cart
   function removeItem(event) {
-    const itemName = event.target.getAttribute('data-name');
+    const itemName = event.target.getAttribute("data-name");
     cartItems = cartItems.filter(item => item.name !== itemName);
     updateCartUI();
   }
 
-  // Product Image Click to Show Details
-  const productImages = document.querySelectorAll('.product-image');
+  // Attach event listeners using data attributes from the new HTML structure
+
+  // For product images:
+  const productImages = document.querySelectorAll(".product-image");
   productImages.forEach(image => {
-    image.addEventListener('click', function () {
-      const productItem = this.closest('.product-item');
-      const details = productItem.querySelector('.details');
-      details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
+    image.addEventListener("click", function() {
+      // Retrieve product data from data attributes
+      const name = image.getAttribute("data-name");
+      const price = parseFloat(image.getAttribute("data-price"));
+      // Optionally, you can also get the image source if needed:
+      // const imgSrc = image.getAttribute("data-img");
+      addItemToCart(name, price);
     });
   });
 
-  // Add to Cart for Each Product Item
-  document.querySelectorAll(".add-to-cart").forEach(button => {
-    button.addEventListener("click", (event) => {
-      const productElement = event.target.closest(".product-item");
-      const productName = productElement.querySelector(".product-name").textContent;
-      const productPrice = parseFloat(productElement.querySelector(".product-price").textContent.replace('SEK', '').trim());
-      addItemToCart(productName, productPrice);
+  // For "Add to Cart" buttons:
+  const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  addToCartButtons.forEach(button => {
+    button.addEventListener("click", function(event) {
+      event.stopPropagation(); // Prevent image click event from firing
+      const productItem = button.closest(".product-item");
+      const image = productItem.querySelector(".product-image");
+      const name = image.getAttribute("data-name");
+      const price = parseFloat(image.getAttribute("data-price"));
+      addItemToCart(name, price);
     });
   });
 });

@@ -334,28 +334,6 @@ footer {
   transform: scale(1.05);
 }
 
-/* For Product Description */
-.product-description {
-  font-size: 1.2em;
-  line-height: 1.5;
-  margin-top: 40px;
-  color: #444;
-}
-
-.product-details-container .product-description {
-  color: #777;
-}
-
-.product-details-text {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease-in-out;
-}
-
-.product-details-text.pop-out {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* Modal Container */
 .product-modal {
@@ -396,6 +374,14 @@ footer {
   right: 10px;
   font-size: 20px;
   cursor: pointer;
+}
+
+/* For Product Description */
+.product-description {
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin-top: 40px;
+  color: #444;
 }
 
 /* Hide product details by default */
