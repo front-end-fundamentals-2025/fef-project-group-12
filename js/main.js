@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const emptyCartMessage = document.querySelector('.empty-cart-message');
   const checkoutButton = document.querySelector('.cart-footer .check-out');
 
-  // Cart Toggle and Empty Cart Message
+  // Toggle Cart visibility and show empty cart message if needed
   cartIcon.addEventListener("click", () => {
     cartTab.classList.toggle("show");
     emptyCartMessage.style.display = cartItems.length === 0 ? 'block' : 'none';
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cartTab.classList.remove("show");
   });
 
-  // Checkout Button
+  // Checkout Button functionality
   if (checkoutButton) {
     checkoutButton.addEventListener("click", () => {
       if (cartItems.length === 0) {
@@ -32,23 +32,23 @@ document.addEventListener("DOMContentLoaded", function () {
       const checkoutDetails = cartItems.map(item =>
         `${item.name} - ${item.quantity} x ${item.price} SEK = ${item.quantity * item.price} SEK`
       ).join('\n');
-      
-      const confirmationMessage = `
-        Checkout Details:
-        -----------------------
-        ${checkoutDetails}
-        
-        Total: ${totalCost} SEK
 
-        Thank you for your purchase!`;
-      
+      const confirmationMessage = `
+Checkout Details:
+-----------------------
+${checkoutDetails}
+
+Total: ${totalCost} SEK
+
+Thank you for your purchase!`;
+
       alert(confirmationMessage);
       cartItems = []; // Clear cart after checkout
       updateCartUI();
     });
   }
 
-  // Add to Cart Function
+  // Function to add items to the cart
   function addItemToCart(name, price) {
     const existingItem = cartItems.find(item => item.name === name);
     if (existingItem) {
@@ -59,12 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartUI();
   }
 
-  // Expose global function (if needed)
+  // Expose addToCart if needed globally (for inline calls)
   window.addToCart = function(name, price) {
     addItemToCart(name, price);
   };
 
-  // Update Cart UI
+  // Update the cart UI based on the items
   function updateCartUI() {
     cartList.innerHTML = "";
     cartCount.textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
       totalCost += item.quantity * item.price;
     });
 
+    // Attach event listeners for quantity controls and removal
     document.querySelectorAll(".increase").forEach(button =>
       button.addEventListener("click", increaseQuantity)
     );
@@ -133,31 +134,29 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartUI();
   }
 
-  // Attach event listeners using data attributes from the new HTML structure
-
-  // For product images:
-  const productImages = document.querySelectorAll(".product-image");
-  productImages.forEach(image => {
-    image.addEventListener("click", function() {
-      // Retrieve product data from data attributes
-      const name = image.getAttribute("data-name");
-      const price = parseFloat(image.getAttribute("data-price"));
-      // Optionally, you can also get the image source if needed:
-      // const imgSrc = image.getAttribute("data-img");
-      addItemToCart(name, price);
-    });
-  });
-
-  // For "Add to Cart" buttons:
+  // Event listener for "Add to Cart" buttons
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
   addToCartButtons.forEach(button => {
     button.addEventListener("click", function(event) {
-      event.stopPropagation(); // Prevent image click event from firing
+      event.stopPropagation(); // Prevent event from bubbling up to the image click event
       const productItem = button.closest(".product-item");
       const image = productItem.querySelector(".product-image");
       const name = image.getAttribute("data-name");
       const price = parseFloat(image.getAttribute("data-price"));
       addItemToCart(name, price);
+    });
+  });
+
+  // Toggle product details when a product image is clicked
+  const productImages = document.querySelectorAll(".product-image");
+  productImages.forEach(image => {
+    image.addEventListener("click", function(event) {
+      const details = image.closest(".product-item").querySelector(".details");
+      if (details.style.display === "none" || details.style.display === "") {
+        details.style.display = "block";
+      } else {
+        details.style.display = "none";
+      }
     });
   });
 });

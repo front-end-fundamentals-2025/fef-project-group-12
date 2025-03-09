@@ -57,6 +57,7 @@
     position: relative;
   }
   
+  /* ABOUT US SECTION */
   .about-container {
     display: flex;
     justify-content: space-between;
@@ -107,6 +108,7 @@
     transition: transform 0.3s ease;
   }
   
+  /* Mobile view */
   @media (max-width: 768px) {
     .about-container {
       flex-direction: column;
@@ -117,6 +119,14 @@
     .about-image {
       max-width: 100%;
       margin-top: 20px;
+    }
+  
+    .about-content h1 {
+      font-size: 2rem;
+    }
+  
+    .about-content p {
+      font-size: 1rem;
     }
   }
   

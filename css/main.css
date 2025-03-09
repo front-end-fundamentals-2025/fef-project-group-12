@@ -5,6 +5,13 @@
   font-family: "Crimson Pro", serif;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Crimson Pro", serif;
+}
+
 /* NAV BAR */
 nav {
   background-color: white;
@@ -30,6 +37,7 @@ nav ul {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  width: 100%;
   padding: 0;
 }
 
@@ -41,6 +49,11 @@ nav ul a {
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+
+nav ul a:hover {
+  color: #007bff; /* Hover effect color */
+  transition: color 0.3s ease;
 }
 
 .icon-cart {

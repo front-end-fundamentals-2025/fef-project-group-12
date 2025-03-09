@@ -15,8 +15,15 @@ body {
     flex-direction: column;
 }
 
-/*   NAV BAR   */
-nav {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Crimson Pro", serif;
+  }
+  
+  /* NAV BAR */
+  nav {
     background-color: white;
     position: fixed;
     top: 0;
@@ -52,6 +59,11 @@ nav {
     text-decoration: none;
     color: black;
     font-weight: bold;
+  }
+  
+  nav ul a:hover {
+    color: #007bff; /* Hover effect color */
+    transition: color 0.3s ease;
   }
   
   .icon-cart {
