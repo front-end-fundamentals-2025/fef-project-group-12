@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/project-detailj.css">
+    <script>
+        function loadProductDetails() {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('name');
+            const price = params.get('price');
+            const imageUrl = params.get('image');
+            const sizes = params.get('sizes')?.split(',');
+            const material = params.get('material');
+            const description = params.get('description');
+            
+            if (name && price && imageUrl) {
+                document.getElementById('product-name').textContent = name;
+                document.getElementById('product-price').textContent = price + ' KR';
+                document.getElementById('product-image').src = imageUrl;
+                document.getElementById('product-material').textContent = material;
+                document.getElementById('product-description').textContent = description;
+                
+                const sizeList = document.getElementById('product-sizes');
+                sizeList.innerHTML = sizes.map(size => `<li>${size}</li>`).join('');
+            }
+        }
+        
+        function addToCart() {
+            const params = new URLSearchParams(window.location.search);
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({
+                name: params.get('name'),
+                price: params.get('price'),
+                imageUrl: params.get('image')
+            });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Product added to cart!');
+        }
+        
+        window.onload = loadProductDetails;
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+    
+    <div class="product-detail-container">
+        <img id="product-image" alt="Product Image" class="product-image-large">
+        <h1 id="product-name"></h1>
+        <p id="product-price" class="price"></p>
+        <p><strong>Material:</strong> <span id="product-material"></span></p>
+        <p><strong>Description:</strong> <span id="product-description"></span></p>
+        <p><strong>Sizes Available:</strong></p>
+        <ul id="product-sizes"></ul>
+        <button onclick="addToCart()">Add to Cart</button>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Brand Name</p>
+    </footer>
+    
+    <h2>Other Products</h2>
+    <div class="other-products">
+        <a href="product-details.html?name=Signet │ Silver&price=3500&image=img/diamond-signet-b.png&sizes=16,17,18,19&material=Silver, Diamond&description=A diamond signet ring, perfect for any occasion.">
+            <img src="img/diamond-signet-b.png" class="product-image" />
+            <p>Signet │ Silver - 3500 KR</p>
+        </a>
+        
+        <a href="product-details.html?name=Moulded │ Silver&price=1800&image=img/moulded-ring-c.png&sizes=16,17,18&material=Silver&description=An elegant moulded silver ring with a modern touch.">
+            <img src="img/moulded-ring-c.png" class="product-image" />
+            <p>Moulded │ Silver - 1800 KR</p>
+        </a>
+        
+        <a href="product-details.html?name=Round Cut │ Gold&price=4000&image=img/round-cut-ring-d.png&sizes=16,17,18,19&material=Gold&description=A stunning round-cut gold ring.">
+            <img src="img/round-cut-ring-d.png" class="product-image" />
+            <p>Round Cut │ Gold - 4000 KR</p>
+        </a>
+        
+        <a href="product-details.html?name=Silver Band │ Classic&price=1200&image=img/silver-band-ring-e.png&sizes=16,17,18,19&material=Silver&description=A classic silver band ring.">
+            <img src="img/silver-band-ring-e.png" class="product-image" />
+            <p>Silver Band │ Classic - 1200 KR</p>
+        </a>
+        
+        <a href="product-details.html?name=Emerald │ Gold&price=2500&image=img/emerald-ring-f.png&sizes=16,17,18,19&material=Gold, Emerald&description=A beautiful emerald gold ring.">
+            <img src="img/emerald-ring-f.png" class="product-image" />
+            <p>Emerald │ Gold - 2500 KR</p>
+        </a>
+    </div>
+
+    <footer>
+        <p id="brandFooter">© Brand name 2025</p>
+        <!--Social Media Links -->
+        <div class="social-links">
+          <a href="https://www.instagram.com" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com" target="_blank">Facebook</a>
+        </div>
+      </footer>
+      <!-- Main JS file -->
+      <script src="js/main.js" defer></script>
+</body>
+</html>
