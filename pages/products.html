@@ -18,50 +18,107 @@
                 <li><a href="/pages/products.html">PRODUCTS</a></li>
                 <li><a href="/pages/contact.html">CONTACT</a></li>
             </ul>
-            <div class="icon-cart">
-                <a href="cart.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <span class="cart-count">0</span>
-                </a>
+            <div class="cart-tab">
+              <button class="close-cart">ⓧ</button>
+              <h1 id="cartTitle">SHOPPING CART</h1>
+              <div class="cart-list"></div>
+              <div class="cart-footer">
+                <button class="check-out">CHECK OUT</button>
+                <div class="cart-total"></div>
+              </div>
+              <p class="empty-cart-message">Your cart is empty</p>
             </div>
         </nav>
     </header>
+
+    <!-- Featured Products Section -->
+    <div class="small-container">
+      <p class="featured-title">FEATURED PRODUCTS</p>
+      <div class="featured-row">
+        <!-- Product 1 -->
+        <div class="col-4 product-item">
+            <a href="product-detailj.html?name=Rounded%20%E2%94%82%20Silver&price=1000&image=img/rounded-ring-a.png&sizes=16,17,18,19,20&material=Silver&description=A%20sleek%20and%20stylish%20silver%20ring.">
+                <img src="img/rounded-ring-a.png" class="product-image" />
+                <div class="product-info">
+                    <h4 class="product-name">Rounded │ Silver</h4>
+                    <p class="price">1000 KR</p>
+                </div>
+            </a>
+            <button class="add-to-cart" onclick="addToCart('Rounded │ Silver', 1000, 'img/rounded-ring-a.png')">Add to Cart</button>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="col-4 product-item">
+            <a href="product-detailj.html?name=Signet%20%E2%94%82%20Silver&price=3500&image=img/diamond-signet-b.png&sizes=16,17,18,19&material=Silver,Diamond&description=A%20diamond%20signet%20ring,%20perfect%20for%20any%20occasion.">
+                <img src="img/diamond-signet-b.png" class="product-image" />
+                <div class="product-info">
+                    <h4 class="product-name">Signet │ Silver</h4>
+                    <p class="price">3500 KR</p>
+                </div>
+            </a>
+            <button class="add-to-cart" onclick="addToCart('Signet │ Silver', 3500, 'img/diamond-signet-b.png')">Add to Cart</button>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="col-4 product-item">
+            <a href="product-detailj.html?name=Moulded%20%E2%94%82%20Silver&price=1800&image=img/moulded-ring-c.png&sizes=16,17,18&material=Silver&description=An%20elegant%20moulded%20silver%20ring%20with%20a%20modern%20touch.">
+                <img src="img/moulded-ring-c.png" class="product-image" />
+                <div class="product-info">
+                    <h4 class="product-name">Moulded │ Silver</h4>
+                    <p class="price">1800 KR</p>
+                </div>
+            </a>
+            <button class="add-to-cart" onclick="addToCart('Moulded │ Silver', 1800, 'img/moulded-ring-c.png')">Add to Cart</button>
+        </div>
+      </div>
+    </div>    
     
     <!-- Products Section -->
     <div class="small-container">
-        <p class="featured-title">FEATURED PRODUCTS</p>
-        <div class="featured-row">
-            <!-- Product Items -->
+        <p class="other-products">OTHER PRODUCTS</p>
+        <div class="other-row">
+            <!-- Product 1 -->
             <div class="col-4 product-item">
                 <a href="product-detailj.html?name=Rounded%20%E2%94%82%20Silver&price=1000&image=img/rounded-ring-a.png&sizes=16,17,18,19,20&material=Silver&description=A%20sleek%20and%20stylish%20silver%20ring.">
                     <img src="img/rounded-ring-a.png" class="product-image" />
                     <h4>Rounded │ Silver</h4>
                 </a>
                 <p class="price">1000 KR</p>
+                <button class="add-to-cart" onclick="addToCart('Rounded │ Silver', 1000, 'img/rounded-ring-a.png')">Add to Cart</button>
             </div>
             
+            <!-- Product 2 -->
             <div class="col-4 product-item">
                 <a href="product-detailj.html?name=Signet%20%E2%94%82%20Silver&price=3500&image=img/diamond-signet-b.png&sizes=16,17,18,19&material=Silver,Diamond&description=A%20diamond%20signet%20ring,%20perfect%20for%20any%20occasion.">
                     <img src="img/diamond-signet-b.png" class="product-image" />
                     <h4>Signet │ Silver</h4>
                 </a>
                 <p class="price">3500 KR</p>
+                <button class="add-to-cart" onclick="addToCart('Signet │ Silver', 3500, 'img/diamond-signet-b.png')">Add to Cart</button>
             </div>
             
+            <!-- Product 3 -->
             <div class="col-4 product-item">
                 <a href="product-detailj.html?name=Moulded%20%E2%94%82%20Silver&price=1800&image=img/moulded-ring-c.png&sizes=16,17,18&material=Silver&description=An%20elegant%20moulded%20silver%20ring%20with%20a%20modern%20touch.">
                     <img src="img/moulded-ring-c.png" class="product-image" />
                     <h4>Moulded │ Silver</h4>
                 </a>
                 <p class="price">1800 KR</p>
+                <button class="add-to-cart" onclick="addToCart('Moulded │ Silver', 1800, 'img/moulded-ring-c.png')">Add to Cart</button>
             </div>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2025 Brand Name</p>
+      <p id="brandFooter">© Brand name 2025</p>
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      </div>
     </footer>
+
+    <!-- Main JS file -->
+    <script src="js/main.js" defer></script>
 </body>
 </html>

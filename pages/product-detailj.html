@@ -1,108 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
-    <link rel="stylesheet" href="/css/project-detailj.css">
-    <script>
-        function loadProductDetails() {
-            const params = new URLSearchParams(window.location.search);
-            const name = params.get('name');
-            const price = params.get('price');
-            const imageUrl = params.get('image');
-            const sizes = params.get('sizes')?.split(',');
-            const material = params.get('material');
-            const description = params.get('description');
-            
-            if (name && price && imageUrl) {
-                document.getElementById('product-name').textContent = name;
-                document.getElementById('product-price').textContent = price + ' KR';
-                document.getElementById('product-image').src = imageUrl;
-                document.getElementById('product-material').textContent = material;
-                document.getElementById('product-description').textContent = description;
-                
-                const sizeList = document.getElementById('product-sizes');
-                sizeList.innerHTML = sizes.map(size => `<li>${size}</li>`).join('');
-            }
-        }
-        
-        function addToCart() {
-            const params = new URLSearchParams(window.location.search);
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push({
-                name: params.get('name'),
-                price: params.get('price'),
-                imageUrl: params.get('image')
-            });
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert('Product added to cart!');
-        }
-        
-        window.onload = loadProductDetails;
-    </script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details │ E-commerce</title>
+    <link rel="stylesheet" href="/css/product-d.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header & Navigation -->
     <header>
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="cart.html">Cart</a>
-        </nav>
-    </header>
-    
-    <div class="product-detail-container">
-        <img id="product-image" alt="Product Image" class="product-image-large">
-        <h1 id="product-name"></h1>
-        <p id="product-price" class="price"></p>
-        <p><strong>Material:</strong> <span id="product-material"></span></p>
-        <p><strong>Description:</strong> <span id="product-description"></span></p>
-        <p><strong>Sizes Available:</strong></p>
-        <ul id="product-sizes"></ul>
-        <button onclick="addToCart()">Add to Cart</button>
-    </div>
-    
-    <footer>
-        <p>&copy; 2025 Brand Name</p>
-    </footer>
-    
-    <h2>Other Products</h2>
-    <div class="other-products">
-        <a href="product-details.html?name=Signet │ Silver&price=3500&image=img/diamond-signet-b.png&sizes=16,17,18,19&material=Silver, Diamond&description=A diamond signet ring, perfect for any occasion.">
-            <img src="img/diamond-signet-b.png" class="product-image" />
-            <p>Signet │ Silver - 3500 KR</p>
+      <nav>
+        <a href="../index.html">
+          <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
         </a>
-        
-        <a href="product-details.html?name=Moulded │ Silver&price=1800&image=img/moulded-ring-c.png&sizes=16,17,18&material=Silver&description=An elegant moulded silver ring with a modern touch.">
-            <img src="img/moulded-ring-c.png" class="product-image" />
-            <p>Moulded │ Silver - 1800 KR</p>
-        </a>
-        
-        <a href="product-details.html?name=Round Cut │ Gold&price=4000&image=img/round-cut-ring-d.png&sizes=16,17,18,19&material=Gold&description=A stunning round-cut gold ring.">
-            <img src="img/round-cut-ring-d.png" class="product-image" />
-            <p>Round Cut │ Gold - 4000 KR</p>
-        </a>
-        
-        <a href="product-details.html?name=Silver Band │ Classic&price=1200&image=img/silver-band-ring-e.png&sizes=16,17,18,19&material=Silver&description=A classic silver band ring.">
-            <img src="img/silver-band-ring-e.png" class="product-image" />
-            <p>Silver Band │ Classic - 1200 KR</p>
-        </a>
-        
-        <a href="product-details.html?name=Emerald │ Gold&price=2500&image=img/emerald-ring-f.png&sizes=16,17,18,19&material=Gold, Emerald&description=A beautiful emerald gold ring.">
-            <img src="img/emerald-ring-f.png" class="product-image" />
-            <p>Emerald │ Gold - 2500 KR</p>
-        </a>
-    </div>
-
-    <footer>
-        <p id="brandFooter">© Brand name 2025</p>
-        <!--Social Media Links -->
-        <div class="social-links">
-          <a href="https://www.instagram.com" target="_blank">Instagram</a>
-          <a href="https://www.facebook.com" target="_blank">Facebook</a>
+        <ul class="nav-links">
+          <li><a href="/pages/aboutus.html">ABOUT</a></li>
+          <li><a href="/pages/products.html">PRODUCTS</a></li>
+          <li><a href="/pages/contact.html">CONTACT</a></li>
+        </ul>
+        <div class="icon-cart" style="position: relative; cursor: pointer;">
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+            />
+          </svg>
+          <span class="cart-count">0</span>
         </div>
-      </footer>
-      <!-- Main JS file -->
-      <script src="js/main.js" defer></script>
-</body>
+      </nav>
+    </header>
+
+    <!-- Main Product Detail Section -->
+    <main>
+      <section class="product-detail-container">
+        <!-- Right Column: Product Image -->
+        <div class="product-image">
+          <img src="img/rounded-ring-a.png" alt="Rounded Silver Ring" />
+        </div>
+        <!-- Left Column: Product Info -->
+        <div class="product-info">
+          <h1>Rounded │ Silver</h1>
+          <p>Price: 1000 KR</p>
+          <p>Sizes Available: 16, 17, 18, 19, 20</p>
+          <p>Material: Silver</p>
+          <p>A sleek and stylish silver ring.</p>
+          <button class="add-to-cart" onclick="addToCart('Rounded │ Silver', 1000, 'img/rounded-ring-a.png')">Add to Cart</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart Panel -->
+    <div class="cart-tab">
+        <button class="close-cart">ⓧ</button>
+        <h1 id="cartTitle">SHOPPING CART</h1>
+        <div class="cart-list"></div>
+        <div class="cart-footer">
+          <button class="check-out">CHECK OUT</button>
+          <div class="cart-total"></div>
+        </div>
+        <p class="empty-cart-message">Your cart is empty</p>
+      </div>
+  
+
+    <!-- Footer -->
+    <footer>
+      <p id="brandFooter">© Brand name 2025</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  </body>
 </html>
