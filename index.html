@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>│ E-commerce</title> 
+    <title>│ E-commerce</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,9 +11,9 @@
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <!-- Header & Navigation -->
     <header>
       <nav>
         <a href="../index.html">
@@ -24,7 +24,7 @@
           <li><a href="/pages/products.html">PRODUCTS</a></li>
           <li><a href="/pages/contact.html">CONTACT</a></li>
         </ul>
-        <div class="icon-cart" style="position: relative; cursor: pointer;">
+        <div class="icon-cart" style="position: relative; cursor: pointer">
           <svg
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -46,10 +46,9 @@
       </nav>
     </header>
 
-    <!-- Main Hero Section -->
     <main>
       <section class="home-container">
-        <!-- Left Section -->
+        <!-- left Section -->
         <article class="home-contain-content text-section">
           <img
             src="img/home-image-left.jpeg"
@@ -62,18 +61,14 @@
             <a href="pages/products.html" class="shop-now-arrow">Shop Now →</a>
           </div>
         </article>
-        <!-- Right Section -->
+        <!-- right Section -->
         <article class="home-contain-content">
-          <img
-            src="img/home-image.jpeg"
-            alt="Person wearing ring"
-            class="foreground-image"
-          />
+          <img src="img/home-image.jpeg" alt="Person wearing ring" />
         </article>
       </section>
     </main>
 
-    <!-- Cart Panel -->
+    <!-- cart panel -->
     <div class="cart-tab">
       <button class="close-cart">ⓧ</button>
       <h1 id="cartTitle">SHOPPING CART</h1>
@@ -85,18 +80,18 @@
       <p class="empty-cart-message">Your cart is empty</p>
     </div>
 
-    <!-- Featured Products Section -->
     <div class="small-container">
       <p class="featured-title">FEATURED PRODUCTS</p>
       <div class="featured-row">
         <!-- Product 1 -->
         <div class="col-4 product-item">
-          <img src="img/rounded-ring-a.png" class="product-image" onclick="addToCart('Rounded │ Silver', 1000, 'img/rounded-ring-a.png')" data-name="Rounded Silver" data-price="1000"/>
+          <!-- Clicking the image will add the product to the cart -->
+          <img src="img/rounded-ring-a.png" class="product-image" onclick="addToCart('Rounded │ Silver', 1.000, 'img/rounded-ring-a.png')" />
           <div class="product-info">
             <h4 class="product-name">Rounded │ Silver</h4>
             <p class="price">1000 KR</p>
             <!-- Hidden details section -->
-            <div class="details" style="display: none;">
+            <div class="details" style="display: none">
               <p class="ring-size">Sizes Available: 16, 17, 18, 19, 20</p>
               <p class="material">Material: Silver</p>
               <p class="description">A sleek and stylish silver ring.</p>
@@ -104,38 +99,42 @@
           </div>
           <button class="add-to-cart">Add to Cart</button>
         </div>
-        
+
         <!-- Product 2 -->
         <div class="col-4 product-item">
-          <img src="img/diamond-signet-b.png" class="product-image" onclick="addToCart('Signet │ Silver', 3500, 'img/diamond-signet-b.png')" data-name="Signet Silver" data-price="3500"/>
+          <img src="img/diamond-signet-b.png" class="product-image" onclick="addToCart('Signet │ Silver', 3500, 'img/diamond-signet-b.png')" />
           <div class="product-info">
             <h4 class="product-name">Signet │ Silver</h4>
             <p class="price">3500 KR</p>
-            <div class="details" style="display: none;">
+            <div class="details" style="display: none">
               <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
               <p class="material">Material: Silver, Diamond</p>
-              <p class="description">A diamond signet ring, perfect for any occasion.</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
             </div>
           </div>
           <button class="add-to-cart">Add to Cart</button>
         </div>
-        
+
         <!-- Product 3 -->
         <div class="col-4 product-item">
-          <img src="img/moulded-ring-c.png" class="product-image" onclick="addToCart('Moulded │ Silver', 1800, 'img/moulded-ring-c.png')" data-name="Moulded Silver" data-price="1800"/>
+          <img src="img/moulded-ring-c.png" class="product-image" onclick="addToCart('Moulded │ Silver', 1800, 'img/moulded-ring-c.png')" />
           <div class="product-info">
             <h4 class="product-name">Moulded │ Silver</h4>
             <p class="price">1800 KR</p>
-            <div class="details" style="display: none;">
+            <div class="details" style="display: none">
               <p class="ring-size">Sizes Available: 16, 17, 18</p>
               <p class="material">Material: Silver</p>
-              <p class="description">An elegant moulded silver ring with a modern touch.</p>
+              <p class="description">
+                An elegant moulded silver ring with a modern touch.
+              </p>
             </div>
           </div>
           <button class="add-to-cart">Add to Cart</button>
         </div>
       </div>
-    </div>    
+    </div>
 
     <footer>
       <p id="brandFooter">© Brand name 2025</p>
@@ -145,7 +144,5 @@
         <a href="https://www.facebook.com" target="_blank">Facebook</a>
       </div>
     </footer>
-    <!-- Main JS file -->
-    <script src="js/main.js" defer></script>
   </body>
 </html>
