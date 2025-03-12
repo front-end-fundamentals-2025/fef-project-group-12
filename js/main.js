@@ -1,87 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Cart functionality
-  let cartItems = []; // Stores items in the cart
+  let cartItems = JSON.parse(localStorage.getItem("cart")) || []; // Retrieve cart data from storage
   const cartIcon = document.querySelector(".icon-cart");
   const cartTab = document.querySelector(".cart-tab");
   const closeCartBtn = document.querySelector(".close-cart");
   const cartList = document.querySelector(".cart-list");
   const cartCount = document.querySelector(".cart-count");
-  const emptyCartMessage = document.querySelector('.empty-cart-message');
-  const checkoutButton = document.querySelector('.cart-footer .check-out');
+  const emptyCartMessage = document.querySelector(".empty-cart-message");
+  const checkoutButton = document.querySelector(".cart-footer .check-out");
 
-  // Toggle Cart visibility and show empty cart message if needed
-  cartIcon.addEventListener("click", () => {
-    cartTab.classList.toggle("show");
-    emptyCartMessage.style.display = cartItems.length === 0 ? "block" : "none";
-  });
-
-  // Close Cart Button
-  closeCartBtn.addEventListener("click", () => {
-    cartTab.classList.remove("show");
-  });
-
-  // Checkout Button functionality
-  if (checkoutButton) {
-    checkoutButton.addEventListener("click", () => {
-      if (cartItems.length === 0) {
-        alert("Your cart is empty! Add some products before checking out.");
-        return;
-      }
-
-      const totalCost = cartItems.reduce((total, item) => total + (item.quantity * item.price), 0);
-      const checkoutDetails = cartItems.map(item =>
-        `${item.name} - ${item.quantity} x ${item.price} SEK = ${item.quantity * item.price} SEK`
-      ).join('\n');
-
-      const confirmationMessage = `
-Checkout Details:
------------------------
-${checkoutDetails}
-
-Total: ${totalCost} SEK
-
-Thank you for your purchase!`;
-
-      alert(confirmationMessage);
-      cartItems = []; // Clear cart after checkout
-      updateCartUI();
-    });
+  function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
   }
 
-  // Function to add items to the cart
-  function addItemToCart(name, price) {
-    const existingItem = cartItems.find(item => item.name === name);
-    if (existingItem) {
-      existingItem.quantity++;
-    } else {
-      cartItems.push({ name, price, quantity: 1 });
-    }
-    localStorage.setItem("cart", JSON.stringify(cartItems));  // Save cart to localStorage
-    updateCartUI();
+  function calculateTotalCost() {
+    return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
   }
 
-  // Expose addToCart if needed globally (for inline calls)
-  window.addToCart = function(name, price) {
-    addItemToCart(name, price);
-  };
-
-  // Update the cart UI based on the items
   function updateCartUI() {
+    if (!cartList || !cartCount) return; // Exit if cart elements are missing
+
     cartList.innerHTML = "";
     cartCount.textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
+    
     if (cartItems.length === 0) {
       cartList.innerHTML = "<p>Your cart is empty</p>";
+      if (emptyCartMessage) emptyCartMessage.style.display = "block";
       return;
     }
 
-  let totalCost = cartItems.reduce((sum, item) => sum + item.quantity * item.price, 0);
-  document.querySelector(".cart-total").textContent = `Total: ${totalCost} SEK`;
+    if (emptyCartMessage) emptyCartMessage.style.display = "none";
 
+    let totalCost = 0;
     cartItems.forEach((item, index) => {
       const cartItem = document.createElement("div");
       cartItem.classList.add("cart-item");
-
       cartItem.innerHTML = `
         <p>${item.name} x ${item.quantity} - ${item.price} SEK</p>
         <p>Total: ${item.quantity * item.price} SEK</p>
@@ -96,26 +48,28 @@ Thank you for your purchase!`;
       totalCost += item.quantity * item.price;
     });
 
-    // Attach event listeners for quantity controls and removal
-    document.querySelectorAll(".increase").forEach(button =>
-      button.addEventListener("click", increaseQuantity)
-    );
-    document.querySelectorAll(".decrease").forEach(button =>
-      button.addEventListener("click", decreaseQuantity)
-    );
-    document.querySelectorAll(".remove-item").forEach(button =>
-      button.addEventListener("click", removeItem)
-    );
-
-    const cartTotal = document.querySelector('.cart-total');
-    if (cartTotal) {
-      cartTotal.textContent = `Total: ${totalCost} SEK`;
-    }
+    document.querySelector(".cart-total").textContent = `Total: ${totalCost} SEK`;
   }
+
+  function addItemToCart(name, price) {
+    const existingItem = cartItems.find(item => item.name === name);
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cartItems.push({ name, price, quantity: 1 });
+    }
+    saveCart();
+    updateCartUI();
+  }
+
+  window.addToCart = function (name, price) {
+    addItemToCart(name, price);
+  };
 
   function increaseQuantity(event) {
     const index = event.target.dataset.index;
     cartItems[index].quantity++;
+    saveCart();
     updateCartUI();
   }
 
@@ -127,39 +81,77 @@ Thank you for your purchase!`;
     } else {
       cartItems.splice(index, 1);
     }
+    saveCart();
     updateCartUI();
   }
 
-  // Remove item from cart
   function removeItem(event) {
     const itemName = event.target.getAttribute("data-name");
-    cartItems = cartItems.filter(item => item.name !== itemName);
+    cartItems = cartItems.filter(item => item.name !== itemName); // Remove only matching items by name
+    saveCart();
     updateCartUI();
   }
 
-  // Event listener for "Add to Cart" buttons
+  // Using event delegation for buttons inside cartList
+  if (cartList) {
+    cartList.addEventListener("click", function (event) {
+      const btn = event.target;
+      if (btn.classList.contains("increase")) {
+        increaseQuantity(event);
+      } else if (btn.classList.contains("decrease")) {
+        decreaseQuantity(event);
+      } else if (btn.classList.contains("remove-item")) {
+        removeItem(event); // Correctly call the removeItem function
+      }
+    });
+  }
+
+  if (checkoutButton) {
+    checkoutButton.addEventListener("click", () => {
+      if (cartItems.length === 0) {
+        alert("Your cart is empty! Add some products before checking out.");
+        return;
+      }
+
+      const totalCost = calculateTotalCost();
+      const checkoutDetails = cartItems.map(item =>
+        `${item.name} - ${item.quantity} x ${item.price} SEK = ${item.quantity * item.price} SEK`
+      ).join('\n');
+
+      alert(`Checkout Details:\n-----------------------\n${checkoutDetails}\n\nTotal: ${totalCost} SEK\n\nThank you for your purchase!`);
+
+      cartItems = [];
+      saveCart();
+      updateCartUI();
+    });
+  }
+
+  if (cartIcon) {
+    cartIcon.addEventListener("click", () => {
+      cartTab.classList.toggle("show");
+      if (emptyCartMessage) {
+        emptyCartMessage.style.display = cartItems.length === 0 ? "block" : "none";
+      }
+    });
+  }
+
+  if (closeCartBtn) {
+    closeCartBtn.addEventListener("click", () => {
+      cartTab.classList.remove("show");
+    });
+  }
+
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
   addToCartButtons.forEach(button => {
-    button.addEventListener("click", function(event) {
-      event.stopPropagation(); // Prevent event from bubbling up to the image click event
+    button.addEventListener("click", function (event) {
+      event.stopPropagation();
       const productItem = button.closest(".product-item");
-      const image = productItem.querySelector(".product-image");
-      const name = image.getAttribute("data-name");
-      const price = parseFloat(image.getAttribute("data-price"));
+      const name = productItem.getAttribute("data-name");
+      const price = parseFloat(productItem.getAttribute("data-price"));
       addItemToCart(name, price);
     });
   });
+  
 
-  // Toggle product details when a product image is clicked
-  const productImages = document.querySelectorAll(".product-image");
-  productImages.forEach(image => {
-    image.addEventListener("click", function(event) {
-      const details = image.closest(".product-item").querySelector(".details");
-      if (details.style.display === "none" || details.style.display === "") {
-        details.style.display = "block";
-      } else {
-        details.style.display = "none";
-      }
-    });
-  });
+  updateCartUI(); // Ensure cart is updated on all pages
 });

@@ -212,7 +212,7 @@ header .icon-cart {
   color: black;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: -20px;
 }
 
@@ -233,11 +233,6 @@ header .icon-cart {
   align-items: center;
 }
 
-/* FOOTER */
-footer {
-  padding-top: 10%;
-  padding-bottom: 2%;
-}
 
 /* HOME PAGE */
 .home-container {
@@ -305,6 +300,7 @@ footer {
   border-radius: 30px;
   cursor: pointer;
 }
+
 /* PRODUCT SECTION */
 .small-container {
   max-width: 1200px;
@@ -358,7 +354,7 @@ h4 {
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  color: #333;  
+  color: #333;
 }
 
 /* Other Products Row */
@@ -366,22 +362,22 @@ h4 {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;  
+  gap: 20px;
 }
 
-/*  Other Product Item */
+/* Other Product Item */
 .other-item {
-  width: 23%;  
-  background-color: #f5f3f4;  
+  width: 23%;
+  background-color: #f5f3f4;
   padding: 15px;
   text-align: center;
-  border-radius: 8px;  
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-  transition: transform 0.3s ease; 
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .other-item:hover {
-  transform: scale(1.05);  
+  transform: scale(1.05);
 }
 
 .other-item img {
@@ -391,7 +387,7 @@ h4 {
 }
 
 .other-item:hover img {
-  transform: scale(1.1);  
+  transform: scale(1.1);
 }
 
 .other-item h4 {
@@ -417,21 +413,37 @@ h4 {
 }
 
 .other-item .button:hover {
-  background-color: #333;
+  background-color: #555;
 }
 
-
-/* FOOTER */
+/* Footer Styles */
 footer {
-  background-color: #f4f4f4;
+  background-color: #f9f9f9;
   padding: 20px;
   text-align: center;
+  margin-top: 40px;
+  font-size: 1rem;
+  border-top: 1px solid #eee;
 }
 
-.social-links a {
+footer p {
+  color: #333;
+}
+
+footer .social-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer .social-links a {
   text-decoration: none;
   color: #333;
-  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-
+footer .social-links a:hover {
+  color: #555;
+}
