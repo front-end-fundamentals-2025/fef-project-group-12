@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
+    <script src="js/main.js" defer></script>
   </head>
   <body>
     <header>
@@ -83,9 +84,12 @@
       <p class="featured-title">FEATURED PRODUCTS</p>
       <div class="featured-row">
         <!-- Product 1 -->
-        <div class="col-4 product-item" data-name="Rounded Silver" data-price=1000 > 
-          <!-- Clicking the image will add the product to the cart -->
-          <img src="img/rounded-ring-a.png" class="product-image" onclick="addToCart('Rounded │ Silver', 1000, 'img/rounded-ring-a.png')" />
+        <div
+          class="col-4 product-item"
+          data-name="Rounded Silver"
+          data-price="1000"
+        >
+          <img src="img/rounded-ring-a.png" class="product-image" />
           <div class="product-info">
             <h4 class="product-name">Rounded │ Silver</h4>
             <p class="price">1000 KR</p>
@@ -100,8 +104,12 @@
         </div>
 
         <!-- Product 2 -->
-        <div class="col-4 product-item" data-name="Signet Silver" data-price=3500 > 
-          <img src="img/diamond-signet-b.png" class="product-image" onclick="addToCart('Signet │ Silver', 3500, 'img/diamond-signet-b.png')" />
+        <div
+          class="col-4 product-item"
+          data-name="Signet Silver"
+          data-price="3500"
+        >
+          <img src="/img/diamond-signet-b.png" class="product-image" />
           <div class="product-info">
             <h4 class="product-name">Signet │ Silver</h4>
             <p class="price">3500 KR</p>
@@ -117,8 +125,12 @@
         </div>
 
         <!-- Product 3 -->
-        <div class="col-4 product-item" data-name=">Moulded Silver" data-price=1800 > 
-          <img src="img/moulded-ring-c.png" class="product-image" onclick="addToCart('Moulded │ Silver', 1800, 'img/moulded-ring-c.png')" />
+        <div
+          class="col-4 product-item"
+          data-name=">Moulded Silver"
+          data-price="1800"
+        >
+          <img src="img/moulded-ring-c.png" class="product-image" />
           <div class="product-info">
             <h4 class="product-name">Moulded │ Silver</h4>
             <p class="price">1800 KR</p>
@@ -143,7 +155,5 @@
         <a href="https://www.facebook.com" target="_blank">Facebook</a>
       </div>
     </footer>
-
-    <script src="js/main.js" defer></script>
   </body>
 </html>

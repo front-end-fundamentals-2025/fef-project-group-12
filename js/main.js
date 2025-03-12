@@ -13,15 +13,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function calculateTotalCost() {
-    return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+    return cartItems.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0
+    );
   }
 
   function updateCartUI() {
     if (!cartList || !cartCount) return; // Exit if cart elements are missing
 
     cartList.innerHTML = "";
-    cartCount.textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    
+    cartCount.textContent = cartItems.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
+
     if (cartItems.length === 0) {
       cartList.innerHTML = "<p>Your cart is empty</p>";
       if (emptyCartMessage) emptyCartMessage.style.display = "block";
@@ -35,35 +41,40 @@ document.addEventListener("DOMContentLoaded", function () {
       const cartItem = document.createElement("div");
       cartItem.classList.add("cart-item");
       cartItem.innerHTML = `
-        <p>${item.name} x ${item.quantity} - ${item.price} SEK</p>
-        <p>Total: ${item.quantity * item.price} SEK</p>
-        <div class="quantity-controls">
-          <button class="decrease" data-index="${index}">-</button>
-          <span>${item.quantity}</span>
-          <button class="increase" data-index="${index}">+</button>
+        <img src="${item.imageSrc}" alt="${item.name}" class="cart-image">
+        <div class="cart-details">
+          <p>${item.name} x ${item.quantity} - ${item.price} SEK</p>
+          <p>Total: ${item.quantity * item.price} SEK</p>
+          <div class="quantity-controls">
+            <button class="decrease" data-index="${index}">-</button>
+            <span>${item.quantity}</span>
+            <button class="increase" data-index="${index}">+</button>
+          </div>
+          <button class="remove-item" data-name="${item.name}">Remove</button>
         </div>
-        <button class="remove-item" data-name="${item.name}">Remove</button>
       `;
       cartList.appendChild(cartItem);
       totalCost += item.quantity * item.price;
     });
 
-    document.querySelector(".cart-total").textContent = `Total: ${totalCost} SEK`;
+    document.querySelector(
+      ".cart-total"
+    ).textContent = `Total: ${totalCost} SEK`;
   }
 
-  function addItemToCart(name, price) {
-    const existingItem = cartItems.find(item => item.name === name);
+  function addItemToCart(name, price, imageSrc) {
+    const existingItem = cartItems.find((item) => item.name === name);
     if (existingItem) {
       existingItem.quantity++;
     } else {
-      cartItems.push({ name, price, quantity: 1 });
+      cartItems.push({ name, price, imageSrc, quantity: 1 });
     }
     saveCart();
     updateCartUI();
   }
 
-  window.addToCart = function (name, price) {
-    addItemToCart(name, price);
+  window.addToCart = function (name, price, imageSrc) {
+    addItemToCart(name, price, imageSrc);
   };
 
   function increaseQuantity(event) {
@@ -87,12 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function removeItem(event) {
     const itemName = event.target.getAttribute("data-name");
-    cartItems = cartItems.filter(item => item.name !== itemName); // Remove only matching items by name
+    cartItems = cartItems.filter((item) => item.name !== itemName);
     saveCart();
     updateCartUI();
   }
 
-  // Using event delegation for buttons inside cartList
   if (cartList) {
     cartList.addEventListener("click", function (event) {
       const btn = event.target;
@@ -101,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (btn.classList.contains("decrease")) {
         decreaseQuantity(event);
       } else if (btn.classList.contains("remove-item")) {
-        removeItem(event); // Correctly call the removeItem function
+        removeItem(event);
       }
     });
   }
@@ -114,11 +124,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       const totalCost = calculateTotalCost();
-      const checkoutDetails = cartItems.map(item =>
-        `${item.name} - ${item.quantity} x ${item.price} SEK = ${item.quantity * item.price} SEK`
-      ).join('\n');
+      const checkoutDetails = cartItems
+        .map(
+          (item) =>
+            `${item.name} - ${item.quantity} x ${item.price} SEK = ${
+              item.quantity * item.price
+            } SEK`
+        )
+        .join("\n");
 
-      alert(`Checkout Details:\n-----------------------\n${checkoutDetails}\n\nTotal: ${totalCost} SEK\n\nThank you for your purchase!`);
+      alert(
+        `Checkout Details:\n-----------------------\n${checkoutDetails}\n\nTotal: ${totalCost} SEK\n\nThank you for your purchase!`
+      );
 
       cartItems = [];
       saveCart();
@@ -130,7 +147,8 @@ document.addEventListener("DOMContentLoaded", function () {
     cartIcon.addEventListener("click", () => {
       cartTab.classList.toggle("show");
       if (emptyCartMessage) {
-        emptyCartMessage.style.display = cartItems.length === 0 ? "block" : "none";
+        emptyCartMessage.style.display =
+          cartItems.length === 0 ? "block" : "none";
       }
     });
   }
@@ -142,16 +160,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
-  addToCartButtons.forEach(button => {
+  addToCartButtons.forEach((button) => {
     button.addEventListener("click", function (event) {
       event.stopPropagation();
       const productItem = button.closest(".product-item");
       const name = productItem.getAttribute("data-name");
       const price = parseFloat(productItem.getAttribute("data-price"));
-      addItemToCart(name, price);
+      const imageSrc = productItem.querySelector(".product-image").src;
+      addItemToCart(name, price, imageSrc);
     });
   });
-  
 
   updateCartUI(); // Ensure cart is updated on all pages
 });
