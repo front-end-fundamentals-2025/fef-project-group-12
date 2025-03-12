@@ -212,7 +212,7 @@ header .icon-cart {
   color: black;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: -20px;
 }
 
@@ -245,14 +245,13 @@ footer {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 100%;
-  gap: 10px;
+  gap: 1vw;
 }
 
 .text-section {
   flex: 1;
   position: relative;
-  min-height: 400px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -262,9 +261,6 @@ footer {
 
 .background-image {
   position: absolute;
-  width: 60vh;
-  height: 70vh;
-  object-fit: contain;
   z-index: -1;
   opacity: 0.8;
 }
@@ -282,18 +278,18 @@ footer {
   font-size: 3em;
 }
 
-.foreground-image {
-  width: 60vh;
-  height: 62vh;
-  height: auto;
-  object-fit: contain;
+.home-contain-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.home-contain-content {
-  flex: 1;
-  min-width: 300px;
-  width: 70vh;
-  height: 80vh;
+.home-contain-content img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 .shop-now-arrow {
@@ -310,7 +306,7 @@ footer {
 .small-container {
   max-width: 100vw;
   margin: 0 auto;
-  padding: 20px 10%;
+  padding: 5% 10%;
   text-align: center;
 }
 
@@ -346,7 +342,6 @@ footer {
 .col-4:hover {
   transform: scale(1.05);
 }
-
 
 /* Modal Container */
 .product-modal {
@@ -406,10 +401,11 @@ footer {
 
 .product-info {
   margin-left: 20px;
+  padding-top: 2vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  text-align: left;
+  text-align: center;
 }
 
 .product-info h4 {
@@ -422,9 +418,10 @@ footer {
 }
 
 .price {
-  color: #b77e3e;
+  color: black;
   font-size: 1.2em;
-  font-weight: bold;
+  font-weight: normal;
+  text-align: center;
 }
 
 .ring-size,
@@ -441,8 +438,35 @@ footer {
 .add-to-cart {
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: #b77e3e;
-  color: white;
+  background-color: #d3d3d3;
+  color: black;
   border: none;
   cursor: pointer;
+  font-weight: 300;
+}
+
+/*  SHOPPING CART */
+.remove-item {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.remove-item:hover {
+  background-color: #cc0000;
+}
+
+.remove-item:active {
+  background-color: #a80000;
+}
+
+.cart-total {
+  font-weight: 600;
+  padding-top: 1vh;
 }
