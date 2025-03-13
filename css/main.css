@@ -416,6 +416,16 @@ footer {
   display: none;
   margin-top: 10px;
   font-size: 1em;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease-in-out;
+}
+
+.details.show-description {
+  display: block;
+  opacity: 1;
+  max-height: 50vh;
 }
 
 .product-info {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>│ E-commerce</title>
@@ -11,108 +11,294 @@
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
-<body>
-    <!-- Header & Navigation -->
+    <script src="/js/main.js" defer></script>
+  </head>
+  <body>
     <header>
-        <nav>
-            <a href="../index.html">
-                <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
-            </a>
-            <ul class="nav-links">
-                <li><a href="/pages/aboutus.html">ABOUT</a></li>
-                <li><a href="/pages/products.html">PRODUCTS</a></li>
-                <li><a href="/pages/contact.html">CONTACT</a></li>
-            </ul>
-            <div class="cart-tab">
-              <button class="close-cart">ⓧ</button>
-              <h1 id="cartTitle">SHOPPING CART</h1>
-              <div class="cart-list"></div>
-              <div class="cart-footer">
-                <button class="check-out">CHECK OUT</button>
-                <div class="cart-total"></div>
-              </div>
-              <p class="empty-cart-message">Your cart is empty</p>
-            </div>
-        </nav>
+      <nav>
+        <a href="../index.html">
+          <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/pages/aboutus.html">ABOUT</a></li>
+          <li><a href="/pages/products.html">PRODUCTS</a></li>
+          <li><a href="/pages/contact.html">CONTACT</a></li>
+        </ul>
+        <div class="icon-cart" style="position: relative; cursor: pointer">
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+            />
+          </svg>
+          <span class="cart-count">0</span>
+        </div>
+      </nav>
     </header>
 
-    <!-- Featured Products Section -->
-    <div class="small-container">
-      <p class="featured-title">FEATURED PRODUCTS</p>
-      <div class="featured-row">
-        <!-- Product 1 -->
-        <div class="col-4 product-item"> 
-            <a href="product-detailj.html?name=Rounded%20%E2%94%82%20Silver&price=1000&image=img/rounded-ring-a.png&sizes=16,17,18,19,20&material=Silver&description=A%20sleek%20and%20stylish%20silver%20ring.">
-                <img src="img/rounded-ring-a.png" class="product-image" />
-                <div class="product-info">
-                    <h4 class="product-name">Rounded │ Silver</h4>
-                    <p class="price">1000 KR</p>
-                </div>
-        </div>
-        
-        <!-- Product 2 -->
-        <div class="col-4 product-item"  > 
-            <a href="product-detailj.html?name=Signet%20%E2%94%82%20Silver&price=3500&image=img/diamond-signet-b.png&sizes=16,17,18,19&material=Silver,Diamond&description=A%20diamond%20signet%20ring,%20perfect%20for%20any%20occasion.">
-                <img src="img/diamond-signet-b.png" class="product-image" />
-                <div class="product-info">
-                    <h4 class="product-name">Signet │ Silver</h4>
-                    <p class="price">3500 KR</p>
-                </div>
-        </div>
-        
-        <!-- Product 3 -->
-        <div class="col-4 product-item"> 
-            <a href="product-detailj.html?name=Moulded%20%E2%94%82%20Silver&price=1800&image=img/moulded-ring-c.png&sizes=16,17,18&material=Silver&description=An%20elegant%20moulded%20silver%20ring%20with%20a%20modern%20touch.">
-                <img src="img/moulded-ring-c.png" class="product-image" />
-                <div class="product-info">
-                    <h4 class="product-name">Moulded │ Silver</h4>
-                    <p class="price">1800 KR</p>
-                </div>
-        </div>
+    <!-- cart panel -->
+    <div class="cart-tab">
+      <button class="close-cart">ⓧ</button>
+      <h1 id="cartTitle">SHOPPING CART</h1>
+      <div class="cart-list"></div>
+      <div class="cart-footer">
+        <button class="check-out">CHECK OUT</button>
+        <div class="cart-total"></div>
       </div>
-    </div>    
-    
-    <!-- Products Section -->
-    <div class="small-container">
-        <p class="other-products">OTHER PRODUCTS</p>
-        <div class="other-row">
-            <!-- Product 1 -->
-            <div class="col-4 product-item"  > 
-                <a href="product-detailj.html?name=Rounded%20%E2%94%82%20Silver&price=1000&image=img/rounded-ring-a.png&sizes=16,17,18,19,20&material=Silver&description=A%20sleek%20and%20stylish%20silver%20ring.">
-                    <img src="img/rounded-ring-a.png" class="product-image" />
-                    <h4>Rounded │ Silver</h4>
-                </a>
-                    <p class="price">1000 KR</p>
-            </div>
-            
-            <!-- Product 2 -->
-            <div class="col-4 product-item" >
-                <a href="product-detailj.html?name=Signet%20%E2%94%82%20Silver&price=3500&image=img/diamond-signet-b.png&sizes=16,17,18,19&material=Silver,Diamond&description=A%20diamond%20signet%20ring,%20perfect%20for%20any%20occasion.">
-                    <img src="img/diamond-signet-b.png" class="product-image" />
-                    <h4>Signet │ Silver</h4>
-                </a>
-                <p class="price">3500 KR</p>
-            </div>
-            
-            <!-- Product 3 -->
-            <div class="col-4 product-item"> 
-                <a href="product-detailj.html?name=Moulded%20%E2%94%82%20Silver&price=1800&image=img/moulded-ring-c.png&sizes=16,17,18&material=Silver&description=An%20elegant%20moulded%20silver%20ring%20with%20a%20modern%20touch.">
-                    <img src="img/moulded-ring-c.png" class="product-image" />
-                    <h4>Moulded │ Silver</h4>
-                </a>
-                <p class="price">1800 KR</p>
-            </div>
-        </div>
+      <p class="empty-cart-message">Your cart is empty</p>
     </div>
-    
-    <footer>
-      <p id="brandFooter">© Brand name 2025</p>
-      <!-- Social Media Links -->
-      <div class="social-links">
-        <a href="https://www.instagram.com" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+
+    <div class="small-container">
+      <p class="featured-title">2025 SPRING COLLECTION</p>
+      <div class="featured-row">
+        <!-- product/marketing images (NOT inside the product row) -->
+        <div class="image-row" id="first-img">
+          <img
+            src="/img/rounded-ring-production.png"
+            class="standalone-image"
+            alt="Showing production of rounded ring"
+          />
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Rounded │ Silver"
+          data-price="1000"
+        >
+          <img src="/img/rounded-ring-a.png" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Rounded │ Silver</h4>
+            <p class="price">1000 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19, 20</p>
+              <p class="material">Material: Silver</p>
+              <p class="description">A sleek and stylish silver ring.</p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Signet │ Silver"
+          data-price="3500"
+        >
+          <img src="/img/diamond-signet-b.png" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Signet │ Silver</h4>
+            <p class="price">3500 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Moulded │ Silver"
+          data-price="1800"
+        >
+          <img src="/img/moulded-ring-c.png" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Moulded │ Silver</h4>
+            <p class="price">1800 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18</p>
+              <p class="material">Material: Silver</p>
+              <p class="description">
+                An elegant moulded silver ring with a modern touch.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="CHAR │ Silver"
+          data-price="2100"
+        >
+          <img src="/img/CHAR-necklace.jpeg" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">CHAR │ Silver</h4>
+            <p class="price">2100 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18</p>
+              <p class="material">Material: Silver</p>
+              <p class="description">
+                An elegant moulded silver ring with a modern touch.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="DANCE ring │ Silver"
+          data-price="4100"
+        >
+          <img src="/img/new-dance-ring.jpeg" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">DANCE ring │ Silver</h4>
+            <p class="price">4100 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Flat │ Silver"
+          data-price="1800"
+        >
+          <img src="/img/FLAT-ring.jpeg" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Flat │ Silver</h4>
+            <p class="price">1800 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <!-- product/marketing image (NOT inside the product row) -->
+        <div class="image-row" id="second-img">
+          <img
+            src="/img/marketing.jpeg"
+            class="standalone-image"
+            alt="Marketing image, sowing rounded ring"
+          />
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Dri │ Silver"
+          data-price="1150"
+        >
+          <img src="/img/DRI-earings.jpeg" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Dri │ Silver</h4>
+            <p class="price">1150 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Loop │ Silver"
+          data-price="2350"
+        >
+          <img src="/img/necklace,loopy.jpg" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Loop │ Silver</h4>
+            <p class="price">2350 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Mara │ Silver"
+          data-price="2550"
+        >
+          <img src="/img/MARA-ring.jpeg" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Mara │ Silver</h4>
+            <p class="price">2550 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Ril │ Silver"
+          data-price="2400"
+        >
+          <img src="/img/Ril.jpeg" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Ril │ Silver</h4>
+            <p class="price">2400 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div
+          class="col-4 product-item"
+          data-name="Blis │ Silver"
+          data-price="3600"
+        >
+          <img src="/img/blis.jpeg" class="product-image" />
+          <div class="product-info">
+            <h4 class="product-name">Blis │ Silver</h4>
+            <p class="price">3600 KR</p>
+            <div class="details" style="display: none">
+              <p class="ring-size">Sizes Available: 16, 17, 18, 19</p>
+              <p class="material">Material: Silver, Diamond</p>
+              <p class="description">
+                A diamond signet ring, perfect for any occasion.
+              </p>
+            </div>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
       </div>
-    </footer>
-    <script src="js/main.js" defer></script>
-</body>
+      <!-- END OF featured-row -->
+    </div>
+    <!-- END OF small-container -->
+  </body>
 </html>
