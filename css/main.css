@@ -13,6 +13,15 @@
 }
 
 /* NAV BAR */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000;
+}
+
 nav {
   background-color: white;
   position: fixed;
@@ -100,9 +109,9 @@ header .icon-cart {
 .cart-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid #ddd;
-  gap: 10px;
+  padding: 3%;
+  gap: 5%;
 }
 
 .cart-item img {
@@ -150,6 +159,7 @@ header .icon-cart {
 .quantity-controls {
   display: flex;
   align-items: center;
+  padding-top: 2%;
 }
 
 .quantity-controls button {
@@ -250,6 +260,7 @@ header .icon-cart {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 /* FOOTER */
@@ -477,11 +488,13 @@ footer {
 
 /*  SHOPPING CART */
 .remove-item {
+  margin-top: -12%;
+  margin-left: 27vw;
+  float: right;
   background-color: #575a5e;
   color: white;
   border: none;
   padding: 6px 12px;
-  margin-top: 5px;
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease-in-out;
