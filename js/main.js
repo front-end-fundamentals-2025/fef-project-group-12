@@ -40,18 +40,20 @@ function updateCartUI() {
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
     cartItem.innerHTML = `
-      <img src="${item.imageSrc}" alt="${item.name}" class="cart-image">
-      <div class="cart-details">
-        <p>${item.name} x ${item.quantity} - ${item.price} SEK</p>
-        <p>Total: ${item.quantity * item.price} SEK</p>
-        <div class="quantity-controls">
-          <button class="decrease" data-index="${index}">-</button>
-          <span>${item.quantity}</span>
-          <button class="increase" data-index="${index}">+</button>
-        </div>
-        <button class="remove-item" data-name="${item.name}">Remove</button>
-      </div>
-    `;
+            <img src="${item.imageSrc}" alt="${item.name}" class="cart-image">
+            <div class="cart-details">
+              <p>${item.name} x ${item.quantity} - ${item.price} SEK</p>
+              <p>Total: ${item.quantity * item.price} SEK</p>
+              <div class="quantity-controls">
+                <button class="decrease" data-index="${index}">-</button>
+                <span>${item.quantity}</span>
+                <button class="increase" data-index="${index}">+</button>
+              </div>
+              <button class="remove-item" data-name="${
+                item.name
+              }">Remove</button>
+            </div>
+          `;
     cartList.appendChild(cartItem);
     totalCost += item.quantity * item.price;
   });
@@ -156,32 +158,14 @@ if (closeCartBtn) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const params = new URLSearchParams(window.location.search);
-  const name = params.get("name");
-  const price = params.get("price");
-  const desc = params.get("desc");
-
-  if (name && price && desc) {
-    document.getElementById("product-name").textContent = name;
-    document.getElementById("product-price").textContent = price + " SEK";
-    document.getElementById("product-description").textContent = desc;
-  } else {
-    document.getElementById("product-details").innerHTML = "<p>Product not found.</p>";
-  }
-});
-
-
-
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
-    // Prevent adding to cart if the image is clicked
     if (event.target.tagName.toLowerCase() === "img") {
-      return; // Do nothing if the image is clicked
+      return;
     }
 
-    event.stopPropagation(); // Stop event propagation to parent elements
+    event.stopPropagation();
     const productItem = button.closest(".product-item");
     const name = productItem.getAttribute("data-name");
     const price = parseFloat(productItem.getAttribute("data-price"));
@@ -202,168 +186,5 @@ productImages.forEach((image) => {
     window.location.href = `product-details.html?name=${name}&price=${price}&desc=${desc}`;
   });
 });
-
-const productDetails = {
-  "rounded-silver": {
-    id: "rounded-silver",
-    name: "Rounded │ Silver",
-    price: 1000,
-    imageSrc: "/img/rounded-ring-a.png",
-    description: "A sleek and stylish silver ring.",
-    sizesAvailable: [16, 17, 18, 19, 20],
-    material: "Silver"
-  },
-  "signet-silver": {
-    id: "signet-silver",
-    name: "Signet │ Silver",
-    price: 3500,
-    imageSrc: "/img/diamond-signet-b.png",
-    description: "A diamond signet ring, perfect for any occasion.",
-    sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
-  },
-  "moulded-silver": {
-    id: "moulded-silver",
-    name: "Moulded │ Silver",
-    price: 1800,
-    imageSrc: "/img/moulded-ring-c.png",
-    description: "An elegant moulded silver ring with a modern touch.",
-    sizesAvailable: [16, 17, 18],
-    material: "Silver"
-  },
-  "char-silver": {
-    id: "char-silver",
-    name: "CHAR │ Silver",
-    price: 2100,
-    imageSrc: "/img/CHAR-necklace.jpeg",
-    description: "An elegant moulded silver ring with a modern touch.",
-    sizesAvailable: [16, 17, 18],
-    material: "Silver"
-  },
-  "dance-ring-silver": {
-    id: "dance-ring-silver",
-    name: "DANCE ring │ Silver",
-    price: 4100,
-    imageSrc: "/img/new-dance-ring.jpeg",
-    description: "A diamond signet ring, perfect for any occasion.",
-    sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
-  },
-  "flat-silver": {
-    id: "flat-silver",
-    name: "Flat │ Silver",
-    price: 1800,
-    imageSrc: "/img/FLAT-ring.jpeg",
-    description: "A diamond signet ring, perfect for any occasion.",
-    sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
-  },
-  "dri-silver": {
-    id: "dri-silver",
-    name: "Dri │ Silver",
-    price: 1150,
-    imageSrc: "/img/DRI-earings.jpeg",
-    description: "A diamond signet ring, perfect for any occasion.",
-    sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
-  },
-  "loop-silver": {
-    id: "loop-silver",
-    name: "Loop │ Silver",
-    price: 2350,
-    imageSrc: "/img/necklace,loopy.jpg",
-    description: "A diamond signet ring, perfect for any occasion.",
-    sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
-  },
-  "mara-silver": {
-    id: "mara-silver",
-    name: "Mara │ Silver",
-    price: 2550,
-    imageSrc: "/img/MARA-ring.jpeg",
-    description: "A diamond signet ring, perfect for any occasion.",
-    sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
-  },
-  "ril-silver": {
-    id: "ril-silver",
-    name: "Ril │ Silver",
-    price: 2400,
-    imageSrc: "/img/Ril.jpeg",
-    description: "A diamond signet ring, perfect for any occasion.",
-    sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
-  }
-};
-function getUrlParameter(name) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(name);  
-}
-
-
-function loadProductDetails() {
-  const productId = getUrlParameter('id'); // Grabs the product name from the URL
-  const product = productDetails[productId]; // Get product details based on the ID
-
-  if (product) {
-    document.getElementById('product-name').textContent = product.name;
-    document.getElementById('product-price').textContent = `Price: ${product.price} SEK`;
-    document.getElementById('product-sizes').textContent = `Sizes Available: ${product.sizesAvailable.join(', ')}`;
-    document.getElementById('product-material').textContent = `Material: ${product.material}`;
-    document.getElementById('product-description').textContent = product.description;
-    document.getElementById('product-image').src = product.imageSrc;
-    document.getElementById('product-image').alt = product.name;
-  }
-}
-
-window.onload = loadProductDetails; // Ensure the function runs when the page loads
-
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-}
-
-function calculateTotalCost() {
-  return cartItems.reduce(
-    (total, item) => total + item.quantity * item.price,
-    0
-  );
-}
-
-function updateCartUI() {
-  if (!cartList || !cartCount) return; // Exit if cart elements are missing
-
-  cartList.innerHTML = "";
-  cartCount.textContent = cartItems.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
-
-  if (cartItems.length === 0) {
-    cartList.innerHTML = "<p>Your cart is empty</p>";
-  } else {
-    cartItems.forEach(item => {
-      const cartItemElement = document.createElement("div");
-      cartItemElement.classList.add("cart-item");
-      cartItemElement.innerHTML = `
-        <img src="${item.imageSrc}" alt="${item.name}" />
-        <div>
-          <p>${item.name}</p>
-          <p>${item.quantity} x ${item.price} SEK</p>
-        </div>
-      `;
-      cartList.appendChild(cartItemElement);
-    });
-  }
-}
-
-cartIcon.addEventListener("click", () => {
-  cartTab.classList.toggle("show");
-});
-
-closeCartBtn.addEventListener("click", () => {
-  cartTab.classList.remove("show");
-});
-
-checkoutButton.addEvent
 
 updateCartUI(); // Ensure cart is updated on all pages

@@ -241,10 +241,11 @@ header .icon-cart {
 
 /* CONTENT */
 .product-container {
-  display: grid;
+  display: inline-block;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   padding-top: 8vh;
+  position: relative;
 }
 
 .product-item {
@@ -504,6 +505,69 @@ footer {
 .cart-total {
   font-weight: 500;
   font-size: medium;
+}
+
+/*  CLICKABLE PRODUCT  */
+#clickable-product {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.standalone-image {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+.overlapping-text {
+  position: absolute;
+  font-family: "Ballet", serif;
+  top: 235vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  font-weight: normal;
+  text-align: center;
+  padding: 10px;
+}
+
+.overlapping-text-p {
+  position: absolute;
+  top: 240vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  color: white;
+  font-weight: normal;
+  text-align: center;
+  padding: 10px;
+}
+
+.overlapping-text-small {
+  position: absolute;
+  top: 243vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  color: #cccccc;
+  font-weight: 100;
+  text-align: center;
+  padding: 10px;
+}
+
+.necklace-shop-now-arrow {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  top: 248vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 30px;
+  margin: 10px 0;
+  border-radius: 30px;
+  cursor: pointer;
 }
 
 /* FOOTER */
