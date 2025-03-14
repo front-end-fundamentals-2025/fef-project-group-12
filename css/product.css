@@ -584,10 +584,6 @@ footer {
   cursor: pointer;
 }
 
-.featured-title {
-  margin-top: 15vh;
-}
-
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
@@ -638,7 +634,7 @@ footer {
   }
 
   .home-contain-content {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -691,6 +687,10 @@ footer {
     top: 60px;
     left: 0;
     right: 0;
+  }
+
+  .featured-title {
+    margin-top: 15vh;
   }
 
   nav ul.active {
