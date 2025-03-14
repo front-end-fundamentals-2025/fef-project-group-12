@@ -156,6 +156,23 @@ if (closeCartBtn) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  const price = params.get("price");
+  const desc = params.get("desc");
+
+  if (name && price && desc) {
+    document.getElementById("product-name").textContent = name;
+    document.getElementById("product-price").textContent = price + " SEK";
+    document.getElementById("product-description").textContent = desc;
+  } else {
+    document.getElementById("product-details").innerHTML = "<p>Product not found.</p>";
+  }
+});
+
+
+
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
@@ -173,17 +190,16 @@ addToCartButtons.forEach((button) => {
   });
 });
 
-// Add event listener for the product image click to toggle the description visibility with animation
 const productImages = document.querySelectorAll(".product-image");
 productImages.forEach((image) => {
-  image.addEventListener("click", function (event) {
+  image.addEventListener("click", function () {
     const productItem = image.closest(".product-item");
-    const description = productItem.querySelector(".details");
+    const name = encodeURIComponent(productItem.getAttribute("data-name"));
+    const price = encodeURIComponent(productItem.getAttribute("data-price"));
+    const desc = encodeURIComponent(productItem.querySelector(".details").textContent);
 
-    if (description) {
-      // Toggle the visibility with smooth animation
-      description.classList.toggle("show-description");
-    }
+    // Redirect to the product-details.html page with query parameters
+    window.location.href = `product-details.html?name=${name}&price=${price}&desc=${desc}`;
   });
 });
 
