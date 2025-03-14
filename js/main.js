@@ -110,8 +110,8 @@ function removeItem(event) {
 
 function updateCartTotal() {
   let total = 0;
-  cartItems.forEach(item => {
-    total += item.price * item.quantity;  // Assuming each item has a price and quantity
+  cartItems.forEach((item) => {
+    total += item.price * item.quantity; // Assuming each item has a price and quantity
   });
   document.querySelector(".cart-total").textContent = `Total: ${total} SEK`;
 }
@@ -128,7 +128,6 @@ if (cartList) {
     }
   });
 }
-
 
 if (checkoutButton) {
   checkoutButton.addEventListener("click", () => {
@@ -189,11 +188,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("product-price").textContent = price + " SEK";
     document.getElementById("product-description").textContent = desc;
   } else {
-    document.getElementById("product-details").innerHTML = "<p>Product not found.</p>";
+    document.getElementById("product-details").innerHTML =
+      "<p>Product not found.</p>";
   }
 });
-
-
 
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 addToCartButtons.forEach((button) => {
@@ -218,7 +216,9 @@ productImages.forEach((image) => {
     const productItem = image.closest(".product-item");
     const name = encodeURIComponent(productItem.getAttribute("data-name"));
     const price = encodeURIComponent(productItem.getAttribute("data-price"));
-    const desc = encodeURIComponent(productItem.querySelector(".details").textContent);
+    const desc = encodeURIComponent(
+      productItem.querySelector(".details").textContent
+    );
 
     // Redirect to the product-details.html page with query parameters
     window.location.href = `product-details.html?name=${name}&price=${price}&desc=${desc}`;
@@ -233,7 +233,7 @@ const productDetails = {
     imageSrc: "/img/rounded-ring-a.png",
     description: "A sleek and stylish silver ring.",
     sizesAvailable: [16, 17, 18, 19, 20],
-    material: "Silver"
+    material: "Silver",
   },
   "signet-silver": {
     id: "signet-silver",
@@ -242,7 +242,7 @@ const productDetails = {
     imageSrc: "/img/diamond-signet-b.png",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
+    material: "Silver, Diamond",
   },
   "moulded-silver": {
     id: "moulded-silver",
@@ -251,7 +251,7 @@ const productDetails = {
     imageSrc: "/img/moulded-ring-c.png",
     description: "An elegant moulded silver ring with a modern touch.",
     sizesAvailable: [16, 17, 18],
-    material: "Silver"
+    material: "Silver",
   },
   "char-silver": {
     id: "char-silver",
@@ -260,7 +260,7 @@ const productDetails = {
     imageSrc: "/img/CHAR-necklace.jpeg",
     description: "An elegant moulded silver ring with a modern touch.",
     sizesAvailable: [16, 17, 18],
-    material: "Silver"
+    material: "Silver",
   },
   "dance-ring-silver": {
     id: "dance-ring-silver",
@@ -269,7 +269,7 @@ const productDetails = {
     imageSrc: "/img/new-dance-ring.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
+    material: "Silver, Diamond",
   },
   "flat-silver": {
     id: "flat-silver",
@@ -278,7 +278,7 @@ const productDetails = {
     imageSrc: "/img/FLAT-ring.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
+    material: "Silver, Diamond",
   },
   "dri-silver": {
     id: "dri-silver",
@@ -287,7 +287,7 @@ const productDetails = {
     imageSrc: "/img/DRI-earings.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
+    material: "Silver, Diamond",
   },
   "loop-silver": {
     id: "loop-silver",
@@ -296,7 +296,7 @@ const productDetails = {
     imageSrc: "/img/necklace,loopy.jpg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
+    material: "Silver, Diamond",
   },
   "mara-silver": {
     id: "mara-silver",
@@ -305,7 +305,7 @@ const productDetails = {
     imageSrc: "/img/MARA-ring.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
+    material: "Silver, Diamond",
   },
   "ril-silver": {
     id: "ril-silver",
@@ -314,30 +314,55 @@ const productDetails = {
     imageSrc: "/img/Ril.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
-    material: "Silver, Diamond"
-  }
+    material: "Silver, Diamond",
+  },
 };
 function getUrlParameter(name) {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(name);  
+  return urlParams.get(name);
 }
 
-
 function loadProductDetails() {
-  const productId = getUrlParameter('id'); // Grabs the product name from the URL
+  const productId = getUrlParameter("id"); // Grabs the product name from the URL
   const product = productDetails[productId]; // Get product details based on the ID
 
   if (product) {
-    document.getElementById('product-name').textContent = product.name;
-    document.getElementById('product-price').textContent = `Price: ${product.price} SEK`;
-    document.getElementById('product-sizes').textContent = `Sizes Available: ${product.sizesAvailable.join(', ')}`;
-    document.getElementById('product-material').textContent = `Material: ${product.material}`;
-    document.getElementById('product-description').textContent = product.description;
-    document.getElementById('product-image').src = product.imageSrc;
-    document.getElementById('product-image').alt = product.name;
+    document.getElementById("product-name").textContent = product.name;
+    document.getElementById(
+      "product-price"
+    ).textContent = `Price: ${product.price} SEK`;
+    document.getElementById(
+      "product-sizes"
+    ).textContent = `Sizes Available: ${product.sizesAvailable.join(", ")}`;
+    document.getElementById(
+      "product-material"
+    ).textContent = `Material: ${product.material}`;
+    document.getElementById("product-description").textContent =
+      product.description;
+    document.getElementById("product-image").src = product.imageSrc;
+    document.getElementById("product-image").alt = product.name;
   }
 }
 
-window.onload = loadProductDetails; 
+window.onscroll = function () {
+  let button = document.getElementById("back-to-top");
+  if (
+    document.body.scrollTop > 200 ||
+    document.documentElement.scrollTop > 200
+  ) {
+    button.classList.add("show");
+  } else {
+    button.classList.remove("show");
+  }
+};
 
-updateCartUI(); 
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+window.onload = loadProductDetails;
+
+updateCartUI();
