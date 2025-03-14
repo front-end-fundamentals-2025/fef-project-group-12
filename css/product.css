@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Crimson Pro", serif;
+  text-decoration: none !important;
 }
 
 /* NAV BAR */
@@ -533,11 +534,10 @@ footer {
 
 @media (max-width: 768px) {
   .product-item {
-    width: 45%; /* Shows 2 items per row */
+    width: 45%;
   }
 }
 
-/* When the screen width is smaller than 480px (e.g., mobile) */
 @media (max-width: 480px) {
   .product-item {
     width: 100%; /* Shows 1 item per row */
@@ -572,4 +572,147 @@ footer {
   font-size: 1rem;
   text-align: center;
   margin-bottom: 10px;
+}
+
+.product-info {
+  color: black;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.featured-title {
+  margin-top: 15vh;
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .menu-icon {
+    display: block; /* Show menu icon */
+  }
+
+  nav ul {
+    display: none; /* Hide menu initially */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+  }
+
+  nav ul.active {
+    display: flex; /* Show menu when active */
+  }
+
+  nav ul li {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .cart-tab {
+    transition: transform 0.3s ease-in-out; /* Use transform instead of right */
+    transform: translateX(100%);
+    width: 40vw;
+  }
+
+  .cart-tab.show {
+    transform: translateX(0);
+  }
+
+  .logo {
+    height: 40px;
+  }
+}
+
+/* Responsive Home Page */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+  }
+
+  .home-contain-content {
+    width: 90%;
+  }
+}
+
+/* Responsive Product Grid */
+@media (max-width: 600px) {
+  .col-4 {
+    flex-basis: 100%;
+  }
+}
+
+/* Responsive Image Row */
+@media (max-width: 768px) {
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #first-img,
+  #second-img {
+    width: 80%;
+  }
+}
+
+/* Responsive Footer */
+@media (max-width: 480px) {
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 414px) {
+  nav {
+    flex-direction: column;
+    padding: 10px 5%;
+    height: auto;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+}
+
+.close-menu {
+  font-size: 24px;
+  color: black;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }
