@@ -40,18 +40,20 @@ function updateCartUI() {
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
     cartItem.innerHTML = `
-      <img src="${item.imageSrc}" alt="${item.name}" class="cart-image">
-      <div class="cart-details">
-        <p>${item.name} x ${item.quantity} - ${item.price} SEK</p>
-        <p>Total: ${item.quantity * item.price} SEK</p>
-        <div class="quantity-controls">
-          <button class="decrease" data-index="${index}">-</button>
-          <span>${item.quantity}</span>
-          <button class="increase" data-index="${index}">+</button>
-        </div>
-        <button class="remove-item" data-name="${item.name}">Remove</button>
-      </div>
-    `;
+            <img src="${item.imageSrc}" alt="${item.name}" class="cart-image">
+            <div class="cart-details">
+              <p>${item.name} x ${item.quantity} - ${item.price} SEK</p>
+              <p>Total: ${item.quantity * item.price} SEK</p>
+              <div class="quantity-controls">
+                <button class="decrease" data-index="${index}">-</button>
+                <span>${item.quantity}</span>
+                <button class="increase" data-index="${index}">+</button>
+              </div>
+              <button class="remove-item" data-name="${
+                item.name
+              }">Remove</button>
+            </div>
+          `;
     cartList.appendChild(cartItem);
     totalCost += item.quantity * item.price;
   });
@@ -159,12 +161,11 @@ if (closeCartBtn) {
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
-    // Prevent adding to cart if the image is clicked
     if (event.target.tagName.toLowerCase() === "img") {
-      return; // Do nothing if the image is clicked
+      return;
     }
 
-    event.stopPropagation(); // Stop event propagation to parent elements
+    event.stopPropagation();
     const productItem = button.closest(".product-item");
     const name = productItem.getAttribute("data-name");
     const price = parseFloat(productItem.getAttribute("data-price"));
@@ -173,18 +174,4 @@ addToCartButtons.forEach((button) => {
   });
 });
 
-// Add event listener for the product image click to toggle the description visibility with animation
-const productImages = document.querySelectorAll(".product-image");
-productImages.forEach((image) => {
-  image.addEventListener("click", function (event) {
-    const productItem = image.closest(".product-item");
-    const description = productItem.querySelector(".details");
-
-    if (description) {
-      // Toggle the visibility with smooth animation
-      description.classList.toggle("show-description");
-    }
-  });
-});
-
-updateCartUI(); // Ensure cart is updated on all pages
+updateCartUI();
