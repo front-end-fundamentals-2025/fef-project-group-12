@@ -316,54 +316,6 @@ function loadProductDetails() {
   }
 }
 
-window.onload = loadProductDetails; // Ensure the function runs when the page loads
+window.onload = loadProductDetails; 
 
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-}
-
-function calculateTotalCost() {
-  return cartItems.reduce(
-    (total, item) => total + item.quantity * item.price,
-    0
-  );
-}
-
-function updateCartUI() {
-  if (!cartList || !cartCount) return; // Exit if cart elements are missing
-
-  cartList.innerHTML = "";
-  cartCount.textContent = cartItems.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
-
-  if (cartItems.length === 0) {
-    cartList.innerHTML = "<p>Your cart is empty</p>";
-  } else {
-    cartItems.forEach(item => {
-      const cartItemElement = document.createElement("div");
-      cartItemElement.classList.add("cart-item");
-      cartItemElement.innerHTML = `
-        <img src="${item.imageSrc}" alt="${item.name}" />
-        <div>
-          <p>${item.name}</p>
-          <p>${item.quantity} x ${item.price} SEK</p>
-        </div>
-      `;
-      cartList.appendChild(cartItemElement);
-    });
-  }
-}
-
-cartIcon.addEventListener("click", () => {
-  cartTab.classList.toggle("show");
-});
-
-closeCartBtn.addEventListener("click", () => {
-  cartTab.classList.remove("show");
-});
-
-checkoutButton.addEvent
-
-updateCartUI(); // Ensure cart is updated on all pages
+updateCartUI(); 
