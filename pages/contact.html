@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Details</title>
-    <link rel="stylesheet" href="/css/details.css" />
+    <link rel="stylesheet" href="/css/contact.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
+    <script src="/js/main.js" defer></script>
   </head>
   <body>
     <header>
@@ -23,29 +24,40 @@
           <li><a href="/pages/products.html">PRODUCTS</a></li>
           <li><a href="/pages/contact.html">CONTACT</a></li>
         </ul>
-        <div class="icon-cart">
-            <svg
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
-              />
-            </svg>
-            <span>0</span>
+        <div class="icon-cart" style="position: relative; cursor: pointer">
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+            />
+          </svg>
+          <span class="cart-count">0</span>
         </div>
       </nav>
     </header>
 
-    <footer>
+    <!-- cart panel -->
+    <div class="cart-tab">
+      <button class="close-cart">ⓧ</button>
+      <h1 id="cartTitle">SHOPPING CART</h1>
+      <div class="cart-list"></div>
+      <div class="cart-footer">
+        <button class="check-out">CHECK OUT</button>
+        <div class="cart-total"></div>
+      </div>
+    </div>
+
+    <main>
       <div class="contact-container">
         <h2>Contact Us</h2>
         <form action="#" method="post">
@@ -61,19 +73,18 @@
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
           </div>
-          <button type="submit">Send</button>
+          <button class="send-button" type="submit">Send</button>
         </form>
       </div>
-    </footer>
+    </main>
 
     <footer>
-        <p id="brandFooter">© Brand name 2025</p>
-        <!--Social Media Links -->
-        <div class="social-links">
-          <a href="https://www.instagram.com" target="_blank">Instagram</a>
-          <a href="https://www.facebook.com" target="_blank">Facebook</a>
-        </div>
-      </footer>
-    <script src="js/main.js" defer></script>
+      <p id="brandFooter">© Brand name 2025</p>
+      <!--Social Media Links -->
+      <div class="social-links">
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      </div>
+    </footer>
   </body>
 </html>

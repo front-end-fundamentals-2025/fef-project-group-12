@@ -5,6 +5,16 @@
   font-family: "Crimson Pro", serif;
 }
 
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
 /* NAV BAR */
 header {
   position: fixed;
@@ -244,7 +254,6 @@ header .icon-cart {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  padding-top: 8vh;
 }
 
 .product-item {
@@ -254,6 +263,7 @@ header .icon-cart {
   flex-direction: column;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 /* FOOTER */
@@ -352,6 +362,7 @@ footer {
   padding: 10px;
   min-width: 200px;
   margin-bottom: 30px;
+  margin-top: 3%;
   transition: transform 0.3s ease;
 }
 
@@ -504,4 +515,97 @@ footer {
 .cart-total {
   font-weight: 500;
   font-size: medium;
+}
+
+/*  PRODUCTS BAR - STANDALONE IMG */
+.standalone-image {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.image-row {
+  display: flex;
+}
+
+#first-img {
+  width: 40%;
+  height: auto;
+}
+
+#second-img {
+  width: 30%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    width: 45%; /* Shows 2 items per row */
+  }
+}
+
+/* When the screen width is smaller than 480px (e.g., mobile) */
+@media (max-width: 480px) {
+  .product-item {
+    width: 100%; /* Shows 1 item per row */
+  }
+}
+
+/* CONTACT SHEET */
+.contact-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-family: "Crimson Pro", serif;
+  font-size: 1.8em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Crimson Pro", serif;
+}
+
+.send-button {
+  background-color: #e9ecef;
+  color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+}
+
+.send-button:hover {
+  background-color: #66666e;
+  color: white;
 }

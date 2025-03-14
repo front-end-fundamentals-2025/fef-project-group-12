@@ -5,13 +5,6 @@
   font-family: "Crimson Pro", serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Crimson Pro", serif;
-}
-
 /* NAV BAR */
 header {
   position: fixed;
@@ -251,7 +244,6 @@ header .icon-cart {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  padding-top: 8vh;
 }
 
 .product-item {
@@ -360,6 +352,7 @@ footer {
   padding: 10px;
   min-width: 200px;
   margin-bottom: 30px;
+  margin-top: 3%;
   transition: transform 0.3s ease;
 }
 
