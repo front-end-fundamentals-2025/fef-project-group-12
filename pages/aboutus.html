@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us │ E-commerce</title>
-    <link rel="stylesheet" href="/css/aboutus.css" />
+    <title>│ E-commerce</title>
+    <link rel="stylesheet" href="../css/aboutus.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
-    <script src="../js/main.js" defer></script>
+    <script src="/js/main.js" defer></script>
   </head>
   <body>
     <header>
@@ -24,7 +24,7 @@
           <li><a href="/pages/products.html">PRODUCTS</a></li>
           <li><a href="/pages/contact.html">CONTACT</a></li>
         </ul>
-        <div class="icon-cart">
+        <div class="icon-cart" style="position: relative; cursor: pointer">
           <svg
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -41,10 +41,22 @@
               d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
             />
           </svg>
-          <span>0</span>
+          <span class="cart-count">0</span>
         </div>
       </nav>
     </header>
+
+    <!-- cart panel -->
+    <div class="cart-tab">
+      <button class="close-cart">ⓧ</button>
+      <h1 id="cartTitle">SHOPPING CART</h1>
+      <div class="cart-list"></div>
+      <div class="cart-footer">
+        <button class="check-out">CHECK OUT</button>
+        <div class="cart-total"></div>
+      </div>
+      <p class="empty-cart-message">Your cart is empty</p>
+    </div>
 
     <main>
       <section class="about-container">
@@ -67,14 +79,6 @@
             src="../img/about-2.jpeg"
             alt="Our Jewellery Collection"
             class="about-image"
-          />
-        </div>
-
-        <div class="production">
-          <img
-            src="../img/rounded-ring-production.png"
-            class="standalone-image"
-            alt="Showing production of rounded ring"
           />
         </div>
       </section>

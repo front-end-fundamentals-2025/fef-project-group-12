@@ -261,6 +261,7 @@ header .icon-cart {
   flex-direction: column;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 /* FOOTER */
@@ -515,16 +516,37 @@ footer {
 
 /*  PRODUCTS BAR - STANDALONE IMG */
 .standalone-image {
-  display: block; /* Makes sure they appear on their own line */
-  width: 40%;
-  height: auto;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
   z-index: 0;
 }
 
 .image-row {
-  margin: 30px 0;
+  display: flex;
 }
 
 #first-img {
-  float: left;
+  width: 40%;
+  height: auto;
+}
+
+#second-img {
+  width: 30%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    width: 45%; /* Shows 2 items per row */
+  }
+}
+
+/* When the screen width is smaller than 480px (e.g., mobile) */
+@media (max-width: 480px) {
+  .product-item {
+    width: 100%; /* Shows 1 item per row */
+  }
 }
