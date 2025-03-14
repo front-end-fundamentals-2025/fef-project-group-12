@@ -9,9 +9,133 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+      rel="stylesheet"/>
+  <script>
+    const productDetails = {
+  "rounded-silver": {
+    id: "rounded-silver",
+    name: "Rounded │ Silver",
+    price: 1000,
+    imageSrc: "/img/rounded-ring-a.png",
+    description: "A sleek and stylish silver ring.",
+    sizesAvailable: [16, 17, 18, 19, 20],
+    material: "Silver"
+  },
+  "signet-silver": {
+    id: "signet-silver",
+    name: "Signet │ Silver",
+    price: 3500,
+    imageSrc: "/img/diamond-signet-b.png",
+    description: "A diamond signet ring, perfect for any occasion.",
+    sizesAvailable: [16, 17, 18, 19],
+    material: "Silver, Diamond"
+  },
+  "moulded-silver": {
+    id: "moulded-silver",
+    name: "Moulded │ Silver",
+    price: 1800,
+    imageSrc: "/img/moulded-ring-c.png",
+    description: "An elegant moulded silver ring with a modern touch.",
+    sizesAvailable: [16, 17, 18],
+    material: "Silver"
+  },
+  "char-silver": {
+    id: "char-silver",
+    name: "CHAR │ Silver",
+    price: 2100,
+    imageSrc: "/img/CHAR-necklace.jpeg",
+    description: "An elegant moulded silver ring with a modern touch.",
+    sizesAvailable: [16, 17, 18],
+    material: "Silver"
+  },
+  "dance-ring-silver": {
+    id: "dance-ring-silver",
+    name: "DANCE ring │ Silver",
+    price: 4100,
+    imageSrc: "/img/new-dance-ring.jpeg",
+    description: "A diamond signet ring, perfect for any occasion.",
+    sizesAvailable: [16, 17, 18, 19],
+    material: "Silver, Diamond"
+  },
+  "flat-silver": {
+    id: "flat-silver",
+    name: "Flat │ Silver",
+    price: 1800,
+    imageSrc: "/img/FLAT-ring.jpeg",
+    description: "A diamond signet ring, perfect for any occasion.",
+    sizesAvailable: [16, 17, 18, 19],
+    material: "Silver, Diamond"
+  },
+  "dri-silver": {
+    id: "dri-silver",
+    name: "Dri │ Silver",
+    price: 1150,
+    imageSrc: "/img/DRI-earings.jpeg",
+    description: "A diamond signet ring, perfect for any occasion.",
+    sizesAvailable: [16, 17, 18, 19],
+    material: "Silver, Diamond"
+  },
+  "loop-silver": {
+    id: "loop-silver",
+    name: "Loop │ Silver",
+    price: 2350,
+    imageSrc: "/img/necklace,loopy.jpg",
+    description: "A diamond signet ring, perfect for any occasion.",
+    sizesAvailable: [16, 17, 18, 19],
+    material: "Silver, Diamond"
+  },
+  "mara-silver": {
+    id: "mara-silver",
+    name: "Mara │ Silver",
+    price: 2550,
+    imageSrc: "/img/MARA-ring.jpeg",
+    description: "A diamond signet ring, perfect for any occasion.",
+    sizesAvailable: [16, 17, 18, 19],
+    material: "Silver, Diamond"
+  },
+  "ril-silver": {
+    id: "ril-silver",
+    name: "Ril │ Silver",
+    price: 2400,
+    imageSrc: "/img/Ril.jpeg",
+    description: "A diamond signet ring, perfect for any occasion.",
+    sizesAvailable: [16, 17, 18, 19],
+    material: "Silver, Diamond"
+  }
+
+};
+
+
+function getUrlParameter(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+function loadProductDetails() {
+  const productId = getUrlParameter('product'); // Grabs the product name from the URL
+  console.log("Product ID from URL:", productId); // Debugging step
+
+  const product = productDetails[productId]; // Get product details based on the ID
+  console.log("Product details found:", product); // Debugging step
+
+  if (product) {
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-price').textContent = `Price: ${product.price} SEK`;
+    document.getElementById('product-sizes').textContent = `Sizes Available: ${product.sizesAvailable.join(', ')}`;
+    document.getElementById('product-material').textContent = `Material: ${product.material}`;
+    document.getElementById('product-description').textContent = product.description;
+    document.getElementById('product-image').src = product.imageSrc;
+    document.getElementById('product-image').alt = product.name;
+  } else {
+    document.querySelector('.product-detail-container').innerHTML = '<p>Product not found.</p>';
+  }
+}
+
+
+window.onload = loadProductDetails; // Ensure the function runs when the page loads
+
+  </script>
+</head>
   <body>
     <!-- Header & Navigation -->
     <header>
@@ -45,28 +169,21 @@
         </div>
       </nav>
     </header>
-
-    <!-- Main Product Detail -->
     <main>
       <section class="product-detail-container">
         <!-- Right Column: Product Image -->
         <div class="product-image">
-          <img src="img/rounded-ring-a.png" alt="Rounded Silver Ring" />
+          <img id="product-image" src="" alt="Product Image">
         </div>
+  
         <!-- Left Column: Product Info -->
         <div class="product-info">
-          <h1>Rounded │ Silver</h1>
-          <p>Price: 1000 KR</p>
-          <p>Sizes Available: 16, 17, 18, 19, 20</p>
-          <p>Material: Silver</p>
-          <p>A sleek and stylish silver ring.</p>
-          <!-- Fix: Removed duplicate class="add-to-cart" -->
-          <button
-            class="add-to-cart"
-            onclick="addToCart('Rounded │ Silver', 1000, 'img/rounded-ring-a.png')"
-          >
-            Add to Cart
-          </button>
+          <h1 id="product-name">Product Name</h1>
+          <p id="product-price">Price: </p>
+          <p id="product-sizes">Sizes Available: </p>
+          <p id="product-material">Material: </p>
+          <p id="product-description">Product Description</p>
+          <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
         </div>
       </section>
     </main>
