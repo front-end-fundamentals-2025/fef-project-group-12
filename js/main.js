@@ -98,6 +98,22 @@ function removeItem(event) {
   cartItems = cartItems.filter((item) => item.name !== itemName);
   saveCart();
   updateCartUI();
+
+  // Check if the cart is empty and update the total to 0
+  if (cartItems.length === 0) {
+    document.querySelector(".cart-total").textContent = "Total: 0 SEK";
+  } else {
+    // If there are still items in the cart, update the total with the actual price
+    updateCartTotal();
+  }
+}
+
+function updateCartTotal() {
+  let total = 0;
+  cartItems.forEach(item => {
+    total += item.price * item.quantity;  // Assuming each item has a price and quantity
+  });
+  document.querySelector(".cart-total").textContent = `Total: ${total} SEK`;
 }
 
 if (cartList) {
@@ -112,6 +128,7 @@ if (cartList) {
     }
   });
 }
+
 
 if (checkoutButton) {
   checkoutButton.addEventListener("click", () => {
@@ -137,6 +154,11 @@ if (checkoutButton) {
     cartItems = [];
     saveCart();
     updateCartUI();
+
+    const cartTotalElement = document.querySelector(".cart-total");
+    if (cartTotalElement) {
+      cartTotalElement.textContent = "Total: 0 SEK";
+    }
   });
 }
 
