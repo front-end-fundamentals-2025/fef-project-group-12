@@ -96,14 +96,13 @@ header .icon-cart {
   margin-bottom: 10px;
 }
 
-/* CPRODUCTS */
+/* CART ITEM */
 .cart-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 8px;
   border-bottom: 1px solid #ddd;
-  gap: 10px;
+  padding: 3%;
+  gap: 5%;
 }
 
 .cart-item img {
