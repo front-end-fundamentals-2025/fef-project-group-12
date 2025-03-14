@@ -266,12 +266,6 @@ header .icon-cart {
   box-sizing: border-box;
 }
 
-/* FOOTER */
-footer {
-  padding-top: 10%;
-  padding-bottom: 2%;
-}
-
 /* HOME PAGE */
 .home-container {
   display: flex;
@@ -335,161 +329,6 @@ footer {
   cursor: pointer;
 }
 
-/* FEATURED PRODUCTS PART */
-.small-container {
-  max-width: 100vw;
-  margin: 0 auto;
-  padding: 5% 10%;
-  text-align: center;
-}
-
-.featured-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.featured-title {
-  font-family: "Crimson Pro", serif;
-  font-weight: 100;
-  font-size: 1.5em;
-  margin-bottom: 20px;
-}
-
-.col-4 {
-  flex-basis: 24%;
-  padding: 10px;
-  min-width: 200px;
-  margin-bottom: 30px;
-  margin-top: 3%;
-  transition: transform 0.3s ease;
-}
-
-.col-4 img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-.col-4:hover {
-  transform: scale(1.05);
-}
-
-/* Modal Container */
-.product-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease;
-}
-
-.product-modal.show {
-  display: flex;
-  opacity: 1;
-}
-
-.product-modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 500px;
-  text-align: center;
-  transform: scale(0);
-  transition: transform 0.3s ease;
-}
-
-.product-modal-content.show {
-  transform: scale(1);
-}
-
-.close-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-/* For Product Description */
-.product-description {
-  font-size: 1.2em;
-  line-height: 1.5;
-  margin-top: 40px;
-  color: #444;
-}
-
-/* Hide product details by default */
-.details {
-  display: none;
-  margin-top: 10px;
-  font-size: 1em;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.3s ease, max-height 0.3s ease-in-out;
-}
-
-.details.show-description {
-  display: block;
-  opacity: 1;
-  max-height: 50vh;
-}
-
-.product-info {
-  margin-left: 0;
-  padding-top: 2vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.product-info h4 {
-  font-size: 1.3em;
-  font-weight: bold;
-}
-
-.product-info p {
-  margin: 5px 0;
-}
-
-.price {
-  color: black;
-  font-size: 1.2em;
-  font-weight: normal;
-  text-align: center;
-}
-
-.ring-size,
-.material {
-  font-size: 1em;
-  color: #777;
-}
-
-.description {
-  font-size: 0.9em;
-  margin-top: 10px;
-}
-
-.add-to-cart {
-  text-align: center;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #d3d3d3;
-  color: black;
-  border: none;
-  cursor: pointer;
-  font-weight: 300;
-}
-
 /*  SHOPPING CART */
 .remove-item {
   margin-top: -12%;
@@ -517,52 +356,13 @@ footer {
   font-size: medium;
 }
 
-/*  PRODUCTS BAR - STANDALONE IMG */
-.standalone-image {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.image-row {
-  display: flex;
-}
-
-#first-img {
-  width: 40%;
-  height: auto;
-}
-
-#second-img {
-  width: 30%;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  .product-item {
-    width: 45%; /* Shows 2 items per row */
-  }
-}
-
-/* When the screen width is smaller than 480px (e.g., mobile) */
-@media (max-width: 480px) {
-  .product-item {
-    width: 100%; /* Shows 1 item per row */
-  }
-}
-
 /* CONTACT SHEET */
 .contact-container {
   background: white;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  width: 40vw;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 20%;
 }
 
 h2 {
@@ -589,23 +389,61 @@ input,
 textarea {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
   font-family: "Crimson Pro", serif;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-bottom: 2px solid #666;
 }
 
 .send-button {
-  background-color: #e9ecef;
+  background-color: #ccc;
   color: black;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
-  width: 100%;
+  width: 40%;
   font-weight: bold;
 }
 
 .send-button:hover {
-  background-color: #66666e;
+  background-color: #666;
   color: white;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+}
+
+.social-links a svg {
+  color: #000000;
+  transition: fill 0.3s ease;
+}
+
+.social-links a:hover svg {
+  color: #666;
+}
+
+#brandFooter {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 10px;
 }

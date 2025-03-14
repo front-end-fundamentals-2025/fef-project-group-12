@@ -543,3 +543,33 @@ footer {
     width: 100%; /* Shows 1 item per row */
   }
 }
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2%;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+}
+
+.social-links a svg {
+  color: #000000;
+  transition: fill 0.3s ease;
+}
+
+.social-links a:hover svg {
+  color: #666;
+}
+
+#brandFooter {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
