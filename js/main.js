@@ -1,4 +1,4 @@
-let cartItems = JSON.parse(localStorage.getItem("cart")) || []; // Retrieve cart data from storage
+let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 const cartIcon = document.querySelector(".icon-cart");
 const cartTab = document.querySelector(".cart-tab");
 const closeCartBtn = document.querySelector(".close-cart");
@@ -19,7 +19,7 @@ function calculateTotalCost() {
 }
 
 function updateCartUI() {
-  if (!cartList || !cartCount) return; // Exit if cart elements are missing
+  if (!cartList || !cartCount) return; 
 
   cartList.innerHTML = "";
   cartCount.textContent = cartItems.reduce(
@@ -99,11 +99,10 @@ function removeItem(event) {
   saveCart();
   updateCartUI();
 
-  // Check if the cart is empty and update the total to 0
+  // Check if the cart is empty 
   if (cartItems.length === 0) {
     document.querySelector(".cart-total").textContent = "Total: 0 SEK";
   } else {
-    // If there are still items in the cart, update the total with the actual price
     updateCartTotal();
   }
 }
@@ -111,7 +110,7 @@ function removeItem(event) {
 function updateCartTotal() {
   let total = 0;
   cartItems.forEach((item) => {
-    total += item.price * item.quantity; // Assuming each item has a price and quantity
+    total += item.price * item.quantity; 
   });
   document.querySelector(".cart-total").textContent = `Total: ${total} SEK`;
 }
@@ -196,12 +195,12 @@ document.addEventListener("DOMContentLoaded", function () {
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
-    // Prevent adding to cart if the image is clicked
+    // Prevent adding to cart 
     if (event.target.tagName.toLowerCase() === "img") {
-      return; // Do nothing if the image is clicked
+      return;
     }
 
-    event.stopPropagation(); // Stop event propagation to parent elements
+    event.stopPropagation(); 
     const productItem = button.closest(".product-item");
     const name = productItem.getAttribute("data-name");
     const price = parseFloat(productItem.getAttribute("data-price"));
@@ -209,6 +208,8 @@ addToCartButtons.forEach((button) => {
     addItemToCart(name, price, imageSrc);
   });
 });
+
+//product detailj page
 
 const productImages = document.querySelectorAll(".product-image");
 productImages.forEach((image) => {
@@ -224,6 +225,7 @@ productImages.forEach((image) => {
     window.location.href = `product-details.html?name=${name}&price=${price}&desc=${desc}`;
   });
 });
+
 
 const productDetails = {
   "rounded-silver": {
@@ -323,7 +325,7 @@ function getUrlParameter(name) {
 }
 
 function loadProductDetails() {
-  const productId = getUrlParameter("id"); // Grabs the product name from the URL
+  const productId = getUrlParameter("id"); 
   const product = productDetails[productId]; // Get product details based on the ID
 
   if (product) {
@@ -366,3 +368,18 @@ function scrollToTop() {
 window.onload = loadProductDetails;
 
 updateCartUI();
+
+
+
+//Refrences:
+// Create a Product Detail Page Template using HTML and CSS
+// This tutorial provides guidance on designing a product detail page layout using HTML and CSS.
+// Source: https://www.geeksforgeeks.org/create-a-product-detail-page-template-using-html-and-css/
+
+// Local Storage for Shopping Cart in JavaScript
+// This article provides guidance on using JavaScript objects to store cart items and utilizing localStorage to persist cart data.
+// Source: https://dev.to/haamid/local-storage-for-shopping-cart-in-javascript-2mef
+
+// Shopping Cart Using Local Storage in JavaScript (YouTube Video)  
+// This video tutorial demonstrates how to implement a shopping cart with localStorage in JavaScript, covering adding, removing, and updating cart items.  
+// Source: https://www.youtube.com/watch?v=pRkHOD_nkH4  
