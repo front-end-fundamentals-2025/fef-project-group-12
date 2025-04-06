@@ -191,7 +191,7 @@ nav ul a:hover {
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
-  text-align: center; /* Ensures the total is centered */
+  text-align: center;
 }
 
 .close-cart {

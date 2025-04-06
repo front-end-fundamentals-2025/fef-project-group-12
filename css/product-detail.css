@@ -1,3 +1,4 @@
+/* GLOBAL STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +7,12 @@
 }
 
 /* NAV BAR */
+header {
+  z-index: 1000;
+}
+
 nav {
-  background-color: white;
+  background-color: #fff;
   position: fixed;
   top: 0;
   left: 0;
@@ -34,10 +39,6 @@ nav ul {
   padding: 0;
 }
 
-nav ul li {
-  display: inline-block;
-}
-
 nav ul a {
   text-decoration: none;
   color: black;
@@ -51,13 +52,10 @@ nav ul a:hover {
 
 .icon-cart {
   cursor: pointer;
-}
-
-header .icon-cart {
   position: relative;
 }
 
-/*  EVERYTHING ABOUT THE CART */
+/*  CART TAB */
 .cart-tab {
   position: fixed;
   top: 0;
@@ -89,6 +87,7 @@ header .icon-cart {
   margin-bottom: 10px;
 }
 
+/* CART ITEM */
 .cart-item {
   display: flex;
   align-items: center;
@@ -138,6 +137,7 @@ header .icon-cart {
   font-weight: bold;
 }
 
+/* QUANTITY CONTROLS */
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -155,6 +155,7 @@ header .icon-cart {
   padding: 0 10px;
 }
 
+/* CART BUTTONS */
 .cart-footer {
   display: flex;
   flex-direction: column;
@@ -207,25 +208,6 @@ header .icon-cart {
   color: #66666e;
 }
 
-.icon-cart {
-  cursor: pointer;
-  position: relative;
-}
-
-.icon-cart .cart-count {
-  display: flex;
-  width: 30px;
-  height: 30px;
-  background-color: #e9ecef;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  border-radius: 50%;
-  position: absolute;
-  top: 60%;
-  right: -20px;
-}
-
 .remove-item {
   margin-top: -12%;
   margin-left: 27vw;
@@ -247,12 +229,32 @@ header .icon-cart {
   background-color: #08090a;
 }
 
+/* CART ICON */
+.icon-cart {
+  cursor: pointer;
+  position: relative;
+}
+
+.icon-cart .cart-count {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: #e9ecef;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 60%;
+  right: -20px;
+}
+
 .cart-total {
   font-weight: 500;
   font-size: medium;
 }
 
-/* PRODUCT DETAIL PAGE */
+/* PRODUCT DETAIL */
 .product-detail-container {
   max-width: 1200px;
   margin: 100px auto 40px;
@@ -262,7 +264,7 @@ header .icon-cart {
   background-color: #f4f4f4;
 }
 
-/* LEFT – Product Text/Info */
+/* LEFT – PRODUCT TEXT / INFO */
 .product-info {
   width: 45%;
   padding-right: 20px;
@@ -320,7 +322,7 @@ header .icon-cart {
   color: #555;
 }
 
-/* RIGHT – Product Image */
+/* RIGHT – PRODUCT IMG */
 .product-image {
   width: 50%;
   padding-left: 20px;

@@ -11,24 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('contact-form');
-        const sendButton = document.querySelector('.send-button');
-
-        form.addEventListener('submit', function (event) {
-          event.preventDefault();  // Prevent form submission
-          
-          // Hide the form and show a confirmation message
-          form.style.display = 'none';
-          const message = document.createElement('p');
-          message.textContent = 'Your message has been sent successfully!';
-          message.style.fontSize = '1.2em';
-          message.style.color = 'green';
-          document.querySelector('.contact-container').appendChild(message);
-        });
-      });
-    </script>
+    <script src="/js/main.js" defer></script>
   </head>
   <body>
     <header>
@@ -63,7 +46,6 @@
       </nav>
     </header>
 
-    <!-- cart panel -->
     <div class="cart-tab">
       <button class="close-cart">ⓧ</button>
       <h1 id="cartTitle">SHOPPING CART</h1>

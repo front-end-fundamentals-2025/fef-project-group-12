@@ -19,7 +19,7 @@ function calculateTotalCost() {
 }
 
 function updateCartUI() {
-  if (!cartList || !cartCount) return; 
+  if (!cartList || !cartCount) return;
 
   cartList.innerHTML = "";
   cartCount.textContent = cartItems.reduce(
@@ -99,7 +99,7 @@ function removeItem(event) {
   saveCart();
   updateCartUI();
 
-  // Check if the cart is empty 
+  // Check if the cart is empty
   if (cartItems.length === 0) {
     document.querySelector(".cart-total").textContent = "Total: 0 SEK";
   } else {
@@ -110,7 +110,7 @@ function removeItem(event) {
 function updateCartTotal() {
   let total = 0;
   cartItems.forEach((item) => {
-    total += item.price * item.quantity; 
+    total += item.price * item.quantity;
   });
   document.querySelector(".cart-total").textContent = `Total: ${total} SEK`;
 }
@@ -195,12 +195,12 @@ document.addEventListener("DOMContentLoaded", function () {
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
-    // Prevent adding to cart 
+    // Prevent adding to cart
     if (event.target.tagName.toLowerCase() === "img") {
       return;
     }
 
-    event.stopPropagation(); 
+    event.stopPropagation();
     const productItem = button.closest(".product-item");
     const name = productItem.getAttribute("data-name");
     const price = parseFloat(productItem.getAttribute("data-price"));
@@ -225,7 +225,6 @@ productImages.forEach((image) => {
     window.location.href = `product-details.html?name=${name}&price=${price}&desc=${desc}`;
   });
 });
-
 
 const productDetails = {
   "rounded-silver": {
@@ -325,7 +324,7 @@ function getUrlParameter(name) {
 }
 
 function loadProductDetails() {
-  const productId = getUrlParameter("id"); 
+  const productId = getUrlParameter("id");
   const product = productDetails[productId]; // Get product details based on the ID
 
   if (product) {
@@ -369,7 +368,22 @@ window.onload = loadProductDetails;
 
 updateCartUI();
 
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  const sendButton = document.querySelector(".send-button");
 
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Hide the form and show a confirmation message
+    form.style.display = "none";
+    const message = document.createElement("p");
+    message.textContent = "Your message has been sent successfully!";
+    message.style.fontSize = "1.2em";
+    message.style.color = "grey";
+    document.querySelector(".contact-container").appendChild(message);
+  });
+});
 
 //Refrences:
 // Create a Product Detail Page Template using HTML and CSS
@@ -380,6 +394,6 @@ updateCartUI();
 // This article provides guidance on using JavaScript objects to store cart items and utilizing localStorage to persist cart data.
 // Source: https://dev.to/haamid/local-storage-for-shopping-cart-in-javascript-2mef
 
-// Shopping Cart Using Local Storage in JavaScript (YouTube Video)  
-// This video tutorial demonstrates how to implement a shopping cart with localStorage in JavaScript, covering adding, removing, and updating cart items.  
-// Source: https://www.youtube.com/watch?v=pRkHOD_nkH4  
+// Shopping Cart Using Local Storage in JavaScript (YouTube Video)
+// This video tutorial demonstrates how to implement a shopping cart with localStorage in JavaScript, covering adding, removing, and updating cart items.
+// Source: https://www.youtube.com/watch?v=pRkHOD_nkH4
