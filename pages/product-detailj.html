@@ -3,15 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>│ E-commerce</title>
+    <title>product details │ d'Argent</title>
     <link rel="stylesheet" href="/css/product-detail.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
+    <script src="/js/main.js" defer></script>
+  </head>
   <body>
-    <!-- Header & Navigation -->
     <header>
       <nav>
         <a href="../index.html">
@@ -45,38 +47,35 @@
     </header>
     <main>
       <section class="product-detail-container">
-        <!-- Right Column: Product Image -->
+        <!-- RIGHT product img -->
         <div class="product-image">
-          <img id="product-image" src="" alt="Product Image">
+          <img id="product-image" src="" alt="Product Image" />
         </div>
-  
-        <!-- Left Column: Product Info -->
+
+        <!-- LEFT product info -->
         <div class="product-info">
           <h1 id="product-name"></h1>
-          <p id="product-price">Price: </p>
-          <p id="product-sizes">Sizes Available: </p>
-          <p id="product-material">Material: </p>
+          <p id="product-price">Price:</p>
+          <p id="product-sizes">Sizes Available:</p>
+          <p id="product-material">Material:</p>
           <p id="product-description">Product Description</p>
           <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
         </div>
       </section>
 
-    <!-- cart panel -->
-    <div class="cart-tab">
-      <button class="close-cart">ⓧ</button>
-      <h1 id="cartTitle">SHOPPING CART</h1>
-      <div class="cart-list"></div>
-      <div class="cart-footer">
-        <button class="check-out">CHECK OUT</button>
-        <div class="cart-total"></div>
+      <div class="cart-tab">
+        <button class="close-cart">ⓧ</button>
+        <h1 id="cartTitle">SHOPPING CART</h1>
+        <div class="cart-list"></div>
+        <div class="cart-footer">
+          <button class="check-out">CHECK OUT</button>
+          <div class="cart-total"></div>
+        </div>
       </div>
-    </div>
+    </main>
 
-
-    <!-- Footer -->
     <footer>
       <p id="brandFooter">© d'Argent 2025</p>
-      <!--Social Media Links -->
       <div class="social-links">
         <a
           href="https://www.instagram.com/yourusername"
@@ -124,11 +123,9 @@
         </a>
       </div>
     </footer>
-    <script src="/js/main.js" defer></script>
   </body>
 </html>
 
-
 <!-- Reference: Creating a Responsive Product Page with HTML, CSS, and JavaScript (YouTube Video)  
 This video tutorial walks through the process of designing a responsive product detail page with interactive elements.  
-Source: https://www.youtube.com/watch?v=Hc79sDi3f0U -->  
+Source: https://www.youtube.com/watch?v=Hc79sDi3f0U -->

@@ -209,7 +209,7 @@ addToCartButtons.forEach((button) => {
   });
 });
 
-//product detailj page
+//product detail page
 
 const productImages = document.querySelectorAll(".product-image");
 productImages.forEach((image) => {
