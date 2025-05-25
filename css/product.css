@@ -9,7 +9,7 @@
 .featured-row {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0.9rem;
   flex-wrap: wrap;
 }
 
