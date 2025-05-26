@@ -47,7 +47,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-  color: #a5a5a5;
+  color: #ff99cc;
   transition: color 0.3s ease;
 }
 

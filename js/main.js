@@ -12,14 +12,20 @@ function saveCart() {
 }
 
 function calculateTotalCost() {
-  return cartItems.reduce((total, item) => total + item.quantity * item.price, 0);
+  return cartItems.reduce(
+    (total, item) => total + item.quantity * item.price,
+    0
+  );
 }
 
 function updateCartUI() {
   if (!cartList || !cartCount) return;
 
   cartList.innerHTML = "";
-  cartCount.textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  cartCount.textContent = cartItems.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
 
   if (cartItems.length === 0) {
     cartList.innerHTML = "<p>Your cart is empty</p>";
@@ -96,7 +102,10 @@ function removeItem(event) {
 }
 
 function updateCartTotal() {
-  let total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  let total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   document.querySelector(".cart-total").textContent = `Total: ${total} SEK`;
 }
 
@@ -149,7 +158,8 @@ if (cartIcon) {
   cartIcon.addEventListener("click", () => {
     cartTab.classList.toggle("show");
     if (emptyCartMessage) {
-      emptyCartMessage.style.display = cartItems.length === 0 ? "block" : "none";
+      emptyCartMessage.style.display =
+        cartItems.length === 0 ? "block" : "none";
     }
   });
 }
@@ -171,7 +181,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("product-price").textContent = price + " SEK";
     document.getElementById("product-description").textContent = desc;
   } else {
-    document.getElementById("product-details").innerHTML = "<p>Product not found.</p>";
+    document.getElementById("product-details").innerHTML =
+      "<p>Product not found.</p>";
   }
 });
 
@@ -197,7 +208,9 @@ productImages.forEach((image) => {
     const productItem = image.closest(".product-item");
     const name = encodeURIComponent(productItem.getAttribute("data-name"));
     const price = encodeURIComponent(productItem.getAttribute("data-price"));
-    const desc = encodeURIComponent(productItem.querySelector(".details").textContent);
+    const desc = encodeURIComponent(
+      productItem.querySelector(".details").textContent
+    );
 
     window.location.href = `product-details.html?name=${name}&price=${price}&desc=${desc}`;
   });
@@ -212,7 +225,6 @@ const productDetails = {
     description: "A sleek and stylish silver ring.",
     sizesAvailable: [16, 17, 18, 19, 20],
     material: "Silver",
-
   },
   "signet-silver": {
     id: "signet-silver",
@@ -307,8 +319,11 @@ function loadProductDetails() {
 
   if (product) {
     document.getElementById("product-name").textContent = product.name;
-    document.getElementById("product-price").textContent = `${product.price} SEK`;
-    document.getElementById("product-description").textContent = product.description;
+    document.getElementById(
+      "product-price"
+    ).textContent = `${product.price} SEK`;
+    document.getElementById("product-description").textContent =
+      product.description;
     document.getElementById("product-image").src = product.imageSrc;
     document.getElementById("product-image").alt = product.name;
 
@@ -321,10 +336,12 @@ function loadProductDetails() {
   }
 }
 
-
 window.onscroll = function () {
   let button = document.getElementById("back-to-top");
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+  if (
+    document.body.scrollTop > 200 ||
+    document.documentElement.scrollTop > 200
+  ) {
     button.classList.add("show");
   } else {
     button.classList.remove("show");
@@ -350,6 +367,48 @@ document.addEventListener("DOMContentLoaded", function () {
       const price = parseFloat(this.getAttribute("data-price"));
       const imageSrc = this.getAttribute("data-image");
       addItemToCart(name, price, imageSrc);
+    });
+  }
+});
+
+//Contact thank you message
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.querySelector("#contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = contactForm.name.value.trim();
+      const email = contactForm.email.value.trim();
+      const message = contactForm.message.value.trim();
+
+      if (name && email && message) {
+        // Create popup message div
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("popup-message");
+
+        const messageText = document.createElement("span");
+        messageText.textContent =
+          "Thank you for your message! We will get back to you shortly.";
+
+        const closeBtn = document.createElement("button");
+        closeBtn.textContent = "Close";
+        closeBtn.classList.add("popup-close-btn");
+
+        closeBtn.addEventListener("click", () => {
+          messageDiv.remove();
+        });
+
+        messageDiv.appendChild(messageText);
+        messageDiv.appendChild(closeBtn);
+
+        document.body.appendChild(messageDiv);
+
+        contactForm.reset();
+      } else {
+        alert("Please fill out all fields.");
+      }
     });
   }
 });
