@@ -62,18 +62,21 @@ textarea:focus {
   cursor: pointer;
   width: 40%;
   font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
 #submit-btm:hover {
   background-color: #666;
   color: white;
+  text-transform: uppercase;
 }
 
 .popup-message {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #4caf50;
+  background-color: #666;
   color: white;
   padding: 15px 25px;
   border-radius: 5px;
@@ -84,6 +87,5 @@ textarea:focus {
   gap: 15px;
   z-index: 9999;
 
-  /* Animation */
   animation: popupFadeSlide 0.5s ease forwards;
 }

@@ -232,7 +232,7 @@ const productDetails = {
     id: "char-silver",
     name: "CHAR │ Silver",
     price: 2100,
-    imageSrc: "/img/CHAR-necklace.jpeg",
+    imageSrc: "/img/char-necklace.jpeg",
     description: "An elegant moulded silver ring with a modern touch.",
     sizesAvailable: [16, 17, 18],
     material: "Silver",
@@ -250,7 +250,7 @@ const productDetails = {
     id: "flat-silver",
     name: "Flat │ Silver",
     price: 1800,
-    imageSrc: "/img/FLAT-ring.jpeg",
+    imageSrc: "/img/flat-ring.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
     material: "Silver, Diamond",
@@ -259,7 +259,7 @@ const productDetails = {
     id: "dri-silver",
     name: "Dri │ Silver",
     price: 1150,
-    imageSrc: "/img/DRI-earings.jpeg",
+    imageSrc: "/img/dri-earings.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
     material: "Silver, Diamond",
@@ -268,7 +268,7 @@ const productDetails = {
     id: "loop-silver",
     name: "Loop │ Silver",
     price: 2350,
-    imageSrc: "/img/necklace,loopy.jpg",
+    imageSrc: "/img/necklace-loopy.jpg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
     material: "Silver, Diamond",
@@ -277,7 +277,7 @@ const productDetails = {
     id: "mara-silver",
     name: "Mara │ Silver",
     price: 2550,
-    imageSrc: "/img/MARA-ring.jpeg",
+    imageSrc: "/img/mara-ring.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
     material: "Silver, Diamond",
@@ -286,7 +286,7 @@ const productDetails = {
     id: "ril-silver",
     name: "Ril │ Silver",
     price: 2400,
-    imageSrc: "/img/Ril.jpeg",
+    imageSrc: "/img/ril-ring.jpeg",
     description: "A diamond signet ring, perfect for any occasion.",
     sizesAvailable: [16, 17, 18, 19],
     material: "Silver, Diamond",
@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-//Contact thank you message
+//contact thank you message
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.querySelector("#contact-form");
 

@@ -128,6 +128,10 @@
 }
 
 /*  THE CHAR NECLACE SECTION  */
+.text-overlap-necklace {
+  margin-bottom: 7rem;
+}
+
 .clickable-product {
   display: flex;
   flex-direction: column;
