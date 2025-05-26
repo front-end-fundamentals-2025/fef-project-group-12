@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HOME │ d'Argent</title>
     <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,14 +21,16 @@
           <img src="../img/jaguar-logo.jpeg" alt="Jaguar Logo" class="logo" />
         </a>
         <ul class="nav-links">
-          <li><a href="/pages/aboutus.html" aria-label="About Us">ABOUT</a></li>
           <li>
-            <a href="/pages/products.html" aria-label="View Products"
+            <a href="./pages/aboutus.html" aria-label="About Us">ABOUT</a>
+          </li>
+          <li>
+            <a href="./pages/products.html" aria-label="View Products"
               >PRODUCTS</a
             >
           </li>
           <li>
-            <a href="/pages/contact.html" aria-label="Contact Us">CONTACT</a>
+            <a href="./pages/contact.html" aria-label="Contact Us">CONTACT</a>
           </li>
         </ul>
         <div class="icon-cart" style="position: relative; cursor: pointer">
@@ -68,13 +70,13 @@
           </div>
         </article>
         <article class="home-contain-content">
-          <img src="img/home-image.jpeg" alt="Person wearing ring" />
+          <img src="./img/home-image.jpeg" alt="Person wearing ring" />
         </article>
       </section>
     </main>
 
     <div class="cart-tab">
-      <button class="close-cart">
+      <button class="close-cart" aria-label="Close cart">
         <svg
           width="24"
           height="24"
@@ -115,11 +117,11 @@
           data-price="1000"
         >
           <a
-            href="/pages/product-detailj.html?id=rounded-silver"
+            href="./pages/product-detail.html?id=rounded-silver"
             class="product-link"
           >
             <img
-              src="/img/rounded-ring-a.png"
+              src="./img/rounded-ring-a.png"
               alt="Rounded ring"
               class="product-image"
             />
@@ -142,11 +144,11 @@
           data-price="3500"
         >
           <a
-            href="/pages/product-detailj.html?id=signet-silver"
+            href="./pages/product-detail.html?id=signet-silver"
             class="product-link"
           >
             <img
-              src="/img/diamond-signet-b.png"
+              src="./img/diamond-signet-b.png"
               alt="Diamond Signet"
               class="product-image"
             />
@@ -171,11 +173,11 @@
           data-price="1800"
         >
           <a
-            href="/pages/product-detailj.html?id=moulded-silver"
+            href="./pages/product-detail.html?id=moulded-silver"
             class="product-link"
           >
             <img
-              src="/img/moulded-ring-c.png"
+              src="./img/moulded-ring-c.png"
               alt="Moulded ring"
               class="product-image"
             />
@@ -194,24 +196,22 @@
           <button class="add-to-cart">Add to Cart</button>
         </div>
 
-        <a id="clickable-product" href="/pages/product-detailj.html">
-          <img
-            src="/img/CHAR-necklace.jpeg"
-            class="standalone-image"
-            alt="Marketing image, sowing rounded ring"
-          />
-          <a
-            href="/pages/product-detailj.html?id=rounded-silver"
-            class="product-link"
-          ></a>
-          <h1 class="overlapping-text">The Char necklace</h1>
-          <p class="overlapping-text-p">
-            "A TOUCH OF LUXURY, A LIFETIME OF MEMORIES"
-          </p>
-          <p class="overlapping-text-small">FROM THE 2025 SPRING COLLECTION</p>
-          <a href="/pages/product-detailj.html" class="necklace-shop-now-arrow"
-            >SHOP HERE</a
-          >
+        <a href="./pages/product-detail.html" class="clickable-product">
+          <div>
+            <img
+              src="./img/CHAR-necklace.jpeg"
+              class="standalone-image"
+              alt="Marketing image, showing rounded ring"
+            />
+            <h1 class="overlapping-text">The Char necklace</h1>
+            <p class="overlapping-text-p">
+              "A TOUCH OF LUXURY, A LIFETIME OF MEMORIES"
+            </p>
+            <p class="overlapping-text-small">
+              FROM THE 2025 SPRING COLLECTION
+            </p>
+            <span class="necklace-shop-now-arrow">SHOP HERE</span>
+          </div>
         </a>
       </div>
     </div>
@@ -220,46 +220,48 @@
       <p id="brandFooter">© d'Argent 2025</p>
       <div class="social-links">
         <a
-          href="https://www.instagram.com/yourusername"
+          href="https://www.instagram.com/dargent_jewelry/"
+          aria-label="Instagram"
           target="_blank"
           rel="noopener noreferrer"
         >
           <svg
-            class="w-6 h-6 text-gray-800 dark:text-white"
-            aria-hidden="true"
+            class="social-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            fill="currentColor"
+            fill="none"
             viewBox="0 0 24 24"
           >
             <path
-              fill="currentColor"
-              fill-rule="evenodd"
-              d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
-              clip-rule="evenodd"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 0h10M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 0v5M16 7h.01"
             />
           </svg>
         </a>
-
         <a
-          href="https://www.facebook.com/yourusername"
+          href="https://www.facebook.com/dargent_jewelry"
+          aria-label="Facebook"
           target="_blank"
           rel="noopener noreferrer"
         >
           <svg
-            class="w-6 h-6 text-gray-800 dark:text-white"
-            aria-hidden="true"
+            class="social-icon"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
-            fill="currentColor"
+            fill="none"
             viewBox="0 0 24 24"
           >
             <path
-              fill-rule="evenodd"
-              d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z"
-              clip-rule="evenodd"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 8v4h2l1 3h3v-4h2s0-2-1-3c-1-1-3-1-3-1s-1 0-1 1v3H9Z"
             />
           </svg>
         </a>
