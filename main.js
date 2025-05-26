@@ -170,22 +170,6 @@ if (closeCartBtn) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const params = new URLSearchParams(window.location.search);
-  const name = params.get("name");
-  const price = params.get("price");
-  const desc = params.get("desc");
-
-  if (name && price && desc) {
-    document.getElementById("product-name").textContent = name;
-    document.getElementById("product-price").textContent = price + " SEK";
-    document.getElementById("product-description").textContent = desc;
-  } else {
-    document.getElementById("product-details").innerHTML =
-      "<p>Product not found.</p>";
-  }
-});
-
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
@@ -334,25 +318,6 @@ function loadProductDetails() {
       addToCartButton.setAttribute("data-image", product.imageSrc);
     }
   }
-}
-
-window.onscroll = function () {
-  let button = document.getElementById("back-to-top");
-  if (
-    document.body.scrollTop > 200 ||
-    document.documentElement.scrollTop > 200
-  ) {
-    button.classList.add("show");
-  } else {
-    button.classList.remove("show");
-  }
-};
-
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
 }
 
 window.onload = loadProductDetails;

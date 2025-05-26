@@ -128,10 +128,17 @@
 }
 
 /*  THE CHAR NECLACE SECTION  */
-#clickable-product {
+.clickable-product {
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+
+  min-height: 100vh;
+  width: 100%;
 }
 
 .standalone-image {
@@ -199,10 +206,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.text-content {
-  animation: fadeIn 1.5s ease forwards;
 }
 
 @keyframes scaleUp {
