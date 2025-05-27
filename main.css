@@ -202,30 +202,6 @@
   cursor: pointer;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleUp {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
-}
-
-.col-4:hover {
-  animation: scaleUp 0.3s forwards;
-}
-
 /*  MEDIA QUERIES FOR RESPONSIVE DESIGN */
 @media (max-width: 414px) {
   .featured-row {
