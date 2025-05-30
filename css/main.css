@@ -195,11 +195,13 @@
 }
 
 /*  MEDIA QUERIES FOR RESPONSIVE DESIGN */
-@media (max-width: 870px) {
+@media (max-width: 1200px) {
   .home-contain-content {
     flex: 0 1 100%;
   }
+}
 
+@media (max-width: 870px) {
   .icon-cart {
     right: 1rem;
   }
@@ -212,47 +214,8 @@
 }
 
 @media (max-width: 420px) {
-  .home-contain-content {
-    width: 100%;
-  }
-
-  .featured-row {
-    align-items: center;
-  }
-
-  .home-container {
-    flex-direction: column;
-  }
-
-  .home-container img {
-    width: 400px;
-    object-fit: cover;
-  }
-
   .text-content h1 {
     font-size: 2.5em;
-  }
-
-  .background-image {
-    width: 400px;
-    object-fit: cover;
-  }
-
-  nav ul.active {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    background-color: white;
-  }
-
-  nav ul li {
-    width: 100%;
-    padding: 10px 0;
-  }
-
-  .icon-cart {
-    position: relative;
   }
 
   .overlapping-text {
@@ -263,10 +226,6 @@
   .overlapping-text-p {
     margin-top: 160vh;
     font-size: 0.8rem;
-  }
-
-  .overlapping-text-small {
-    color: transparent;
   }
 }
 

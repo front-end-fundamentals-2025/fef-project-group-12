@@ -89,3 +89,18 @@ textarea:focus {
 
   animation: popupFadeSlide 0.5s ease forwards;
 }
+
+/*  GLOBAL RESPONSIVENESS  */
+/*  iPhone 13/14/15, old ones  */
+@media (max-width: 420px) {
+  .contact-container {
+    flex-direction: column;
+    width: 95vw;
+    padding: 10px;
+  }
+
+  .cart-tab {
+    width: 80vw;
+    right: -100vw;
+  }
+}
