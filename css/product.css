@@ -125,11 +125,10 @@
 }
 
 /* RESPONSIVENESS */
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .back-to-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 7.5vw;
+    height: 7.5vw;
   }
 }
 
