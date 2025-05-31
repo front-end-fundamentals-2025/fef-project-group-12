@@ -1,7 +1,7 @@
 /* MAIN CONTAINER */
 .small-container {
   max-width: 100vw;
-  padding: 5% 10%;
+  margin: 5% 10%;
   text-align: center;
 }
 
@@ -15,7 +15,7 @@
 .featured-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 0.9rem;
 }
 
@@ -90,17 +90,16 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 3.5vw;
-  height: 3.5vw;
+  width: 2.5vw;
+  height: 2.5vw;
   background-color: #222823;
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 15px;
+  padding: 0;
   font-size: 24px;
   cursor: pointer;
   opacity: 0;
-  transform: translateY(20px);
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 999;
@@ -108,6 +107,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.back-to-top svg {
+  width: 60%;
+  height: auto;
 }
 
 .back-to-top.show {
@@ -121,79 +125,16 @@
 }
 
 /* RESPONSIVENESS */
-@media (max-width: 1024px) {
-  .col-4 {
-    flex-basis: 45%;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    height: auto;
-    padding: 15px 0;
-  }
-
-  .logo {
-    height: 40px;
-  }
-
-  nav ul {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    top: 60px;
-    left: 0;
-  }
-
-  nav ul.active {
-    display: flex;
-  }
-
-  nav ul li {
-    padding: 10px 0;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-  }
-
-  nav ul li:last-child {
-    border-bottom: none;
-  }
-
-  .cart-tab {
-    width: 80vw;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .cart-tab.show {
-    transform: translateX(0);
-  }
-
-  .image-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #first-img,
-  #second-img {
-    width: 80%;
-  }
-
-  .featured-title {
-    margin-top: 15vh;
-  }
-}
-
-@media (max-width: 480px) {
-  .col-4 {
-    flex-basis: 100%;
-  }
-
+@media (max-width: 420px) {
   .back-to-top {
-    width: 40px;
-    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .featured-title {
+    margin-top: 4.5rem;
   }
 }
