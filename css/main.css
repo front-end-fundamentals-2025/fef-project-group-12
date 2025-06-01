@@ -219,12 +219,10 @@
   }
 
   .overlapping-text {
-    margin-top: 160vh;
     font-size: 1.5rem;
   }
 
   .overlapping-text-p {
-    margin-top: 160vh;
     font-size: 0.8rem;
   }
 }
